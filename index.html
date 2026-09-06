@@ -822,7 +822,7 @@ for i in range(len(docs)):
 from collections import Counter
 
 def chars(text):                      # 只留汉字，丢掉标点
-    return [c for c in text if "\u4e00" <= c <= "\u9fff"]
+    return [c for c in text if "\u4e00" &lt;= c &lt;= "\u9fff"]
 
 corpus = {                            # 每位作者至少 2 段样本
     "作者A": ["……样本1……", "……样本2……"],
@@ -1081,6 +1081,9 @@ for w, n in counter.most_common(20):
 
   <script src="assets/data/knowledge.js"></script>
   <script src="assets/data/frontier.js"></script>
+  <script src="assets/core.js"></script>
+  <script src="assets/experiments.js"></script>
+  <script src="assets/content.js"></script>
   <script src="assets/app.js"></script>
 </body>
 </html>

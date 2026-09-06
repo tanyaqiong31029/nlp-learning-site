@@ -1,12 +1,19 @@
 # 🗺️ 文科生学 NLP · 从零基础到应用精通的学习地图
 
+[![CI](https://github.com/tanyaqiong31029/nlp-learning-site/actions/workflows/ci.yml/badge.svg)](https://github.com/tanyaqiong31029/nlp-learning-site/actions/workflows/ci.yml)
+[![Live Demo](https://img.shields.io/badge/在线访问-GitHub_Pages-0B7F72)](https://tanyaqiong31029.github.io/nlp-learning-site/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![数据更新](https://img.shields.io/badge/数据-每日自动核验-FF8A3D)](.github/workflows/update-data.yml)
+
 **面向文科背景学习者的机器学习 / 深度学习个人学习网站。**
 
 不需要先成为数学家，也不需要先成为程序员：从你熟悉的文本出发，沿着一条为语言学科研者量身定制的路线，学会用机器阅读、统计与分析语言——目标是 **3–5 个月达到研究够用水平**。
 
+![网站截图](docs/screenshot.png)
+
 > 🔗 **在线访问**：<https://tanyaqiong31029.github.io/nlp-learning-site/>
 >
-> 纯静态、零依赖、无需构建——也可以直接下载后双击 `index.html` 在本地使用。
+> 纯静态、零运行时依赖，MIT 许可证——也可以直接下载后双击 `index.html` 在本地使用。
 
 ## ✨ 功能说明
 
@@ -86,21 +93,43 @@ nlp-learning-site/
 ├── index.html              # 全部页面（hash 路由 SPA，内容与结构）
 ├── assets/
 │   ├── style.css           # 设计令牌 + 全部样式（响应式 / 深色模式）
-│   ├── app.js              # 路由 / 进度 / 主题 / 三个在线实验 / 知识库与前沿动态渲染
+│   ├── core.js             # 共享基础：工具函数、存储、主题、代码块工具
+│   ├── experiments.js      # 三个在线实验（相似度 / 文体计量 / 语料统计）
+│   ├── content.js          # 知识库与前沿动态渲染（含实时看板网络护栏）
+│   ├── app.js              # hash 路由、学习进度、页面导航、启动引导
 │   └── data/
 │       ├── knowledge.js    # 知识库数据（32 个资源，GitHub API 每日核验）
 │       └── frontier.js     # 前沿动态数据（近期动态自动生成 / 趋势 / 实时看板）
 ├── scripts/
-│   └── update-data.mjs     # 数据自动核验脚本（Actions 每日运行，也可本地运行）
+│   ├── update-data.mjs     # 数据自动核验脚本（Actions 每日运行，也可本地运行）
+│   ├── validate-data.mjs   # 数据 schema 校验
+│   ├── check-links.mjs     # 本地资源 + 外链检查
+│   └── smoke-test.mjs      # Playwright 冒烟测试（系统 Chrome）
 ├── .github/workflows/
 │   ├── deploy-pages.yml    # GitHub Pages 自动部署
-│   └── update-data.yml     # 每日数据自动核验 + 提交 + 触发部署
+│   ├── update-data.yml     # 每日数据自动核验 + 校验门禁 + 提交 + 触发部署
+│   └── ci.yml              # CI：语法 / ESLint / HTML / schema / 链接 / 冒烟测试
+├── docs/screenshot.png     # 网站截图
 ├── LICENSE                 # MIT
 └── README.md
 ```
 
-- 无框架、无构建工具、无运行时依赖；浏览器端存储使用 `localStorage`
+- 运行时零依赖：无框架、无构建工具；浏览器端存储使用 `localStorage`
 - 中文按单字切分的 TF-IDF、字符级 Burrows' Delta（1982）均为纯 JS 实现，方便对照学习
+- `devDependencies` 仅供本地检查与 CI 使用，不影响网站"双击即用"
+
+## 🧪 开发与测试
+
+```bash
+npm install              # 安装开发工具链（仅开发用）
+npm run lint             # ESLint + HTML 检查
+npm run validate         # 数据 schema 校验
+npm run links            # 本地资源 + 外链检查（403/429 等反爬响应记为警告）
+npm run smoke            # 浏览器冒烟测试（需先起本地服务，用系统 Chrome）
+npm run update-data      # 手动核验并更新资源数据
+```
+
+CI（`ci.yml`）在每次推送 / PR 时自动运行以上全部检查 + 冒烟测试，防止内容更新导致白屏、路由失效或实验回归。
 
 ## 🤝 适合谁 / 如何贡献
 

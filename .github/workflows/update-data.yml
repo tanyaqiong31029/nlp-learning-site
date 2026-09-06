@@ -30,6 +30,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: 数据 schema 校验（不过则不提交）
+        run: node scripts/validate-data.mjs
+
       - name: 提交数据更新（有变化才提交）
         id: commit
         run: |

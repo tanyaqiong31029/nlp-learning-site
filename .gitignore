@@ -13,3 +13,6 @@
 
 # 本地工具链（本站零依赖，不需要 node_modules；仅防止误提交）
 node_modules/
+
+# 营销素材（本地保留，不入库）
+promo/

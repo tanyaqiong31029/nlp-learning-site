@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  checks:
+    name: 静态检查与数据校验
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: JS 语法检查
+        run: |
+          for f in assets/*.js assets/data/*.js scripts/*.mjs; do
+            node --check "$f"
+          done
+      - name: ESLint + HTML 检查
+        run: npm run lint
+      - name: 数据 schema 校验
+        run: npm run validate
+      - name: 链接检查（本地资源 + 外链）
+        run: npm run links
+
+  smoke:
+    name: 浏览器冒烟测试
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: 启动本地服务
+        run: python3 -m http.server 8000 & sleep 1
+      - name: 运行冒烟测试（系统 Chrome）
+        run: node scripts/smoke-test.mjs http://localhost:8000
