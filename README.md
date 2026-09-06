@@ -64,26 +64,20 @@ python3 -m http.server 8000
 
 > 💡 页面基于 hash 路由（`#/roadmap`、`#/kb`……），可直接收藏某一页的链接。
 
-## 🔄 内容可持续更新机制
+## 🔄 内容可持续更新机制（已全自动）
 
-前沿动态与知识库模块内置了三层保鲜机制：
+本站的内容保鲜由三层机制构成，日常**零维护**：
 
-1. **活跃度看板（全自动）**：页面加载时实时调用 GitHub API 刷新星标与推送时间，缓存 12 小时；离线或限流时自动回落到内置数据，零维护；
-2. **近期动态（每月一次）**：运行下方核验脚本，把新观察到的活跃项目按日期追加到 `assets/data/frontier.js` 的 `picks` 数组；
-3. **趋势观察（每季度一次）**：复核 `frontier.js` 的 `trends` 条目表述。
+| 层级 | 方式 | 频率 |
+| --- | --- | --- |
+| 实时活跃度看板 | 页面加载时调用 GitHub API 刷新星标与推送时间（12h 缓存，离线回落内置数据） | 每次访问 |
+| 数据自动核验 | `update-data.yml` 工作流运行 `scripts/update-data.mjs`：核验全部仓库星标/推送、重新生成「近期动态」、自动提交并触发重新部署 | **每日 10:17（北京时间）** |
+| 趋势观察 | 人工复核 `frontier.js` 的 trends 条目表述 | 每季度 |
 
-**知识库星标一键核验脚本**（unauthenticated 限 60 次/小时，足够）：
+**想收录新资源？** 在 `assets/data/knowledge.js` 对应分类添加条目（`name / repo / stars / pushed / desc / why / tags`，其中 stars 与 pushed 填当前核验值即可），下一次自动核验会把它一并纳入「近期动态」与实时看板，星标从此自动保鲜。
 
-```bash
-for repo in mlabonne/llm-course microsoft/generative-ai-for-beginners rasbt/LLMs-from-scratch \
-  d2l-ai/d2l-zh hankcs/HanLP explosion/spaCy chinese-poetry/chinese-poetry; do
-  curl -s "https://api.github.com/repos/$repo" \
-    | python3 -c "import json,sys; d=json.load(sys.stdin); print(f\"{d.get('full_name','?')}\t{d.get('stargazers_count','?')}\t{(d.get('pushed_at') or '?')[:10]}\")"
-  sleep 1
-done
-```
+**手动触发**：本地运行 `node scripts/update-data.mjs`（可选 `GITHUB_TOKEN` 环境变量提升限流额度），或在仓库 Actions 页手动运行 "Auto update resource data"。
 
-完整脚本与更新方法见 `README` 本节上方说明；知识库数据在 `assets/data/knowledge.js`，动态数据在 `assets/data/frontier.js`，改数据文件即可，页面自动渲染。
 
 ## 🛠️ 技术栈与目录结构
 
@@ -94,8 +88,13 @@ nlp-learning-site/
 │   ├── style.css           # 设计令牌 + 全部样式（响应式 / 深色模式）
 │   ├── app.js              # 路由 / 进度 / 主题 / 三个在线实验 / 知识库与前沿动态渲染
 │   └── data/
-│       ├── knowledge.js    # 知识库数据（31 个资源，GitHub API 核验）
-│       └── frontier.js     # 前沿动态数据（近期动态 / 趋势 / 实时看板 / 追踪入口）
+│       ├── knowledge.js    # 知识库数据（32 个资源，GitHub API 每日核验）
+│       └── frontier.js     # 前沿动态数据（近期动态自动生成 / 趋势 / 实时看板）
+├── scripts/
+│   └── update-data.mjs     # 数据自动核验脚本（Actions 每日运行，也可本地运行）
+├── .github/workflows/
+│   ├── deploy-pages.yml    # GitHub Pages 自动部署
+│   └── update-data.yml     # 每日数据自动核验 + 提交 + 触发部署
 ├── LICENSE                 # MIT
 └── README.md
 ```

@@ -959,12 +959,12 @@ for w, n in counter.most_common(20):
         <div id="frontierContent"></div>
 
         <div class="callout c-tip">
-          <strong>🔧 维护者更新指南（本模块的可持续更新机制）</strong>
+          <strong>🔧 维护者更新指南（本模块已高度自动化）</strong>
           <ol>
-            <li><strong>近期动态</strong>：每月运行一次 README 中的一键核验脚本，把新观察到的活跃项目按日期追加到 <code>assets/data/frontier.js</code> 的 picks 最前面；</li>
-            <li><strong>趋势观察</strong>：每季度复核一次 trends 条目并更新「截至」表述；</li>
-            <li><strong>活跃度看板</strong>：全自动——页面加载时经 GitHub API 实时刷新（12 小时缓存），离线或限流时自动回落到内置数据，无需任何维护；</li>
-            <li><strong>知识库星标</strong>：星标仅为参考，入选标准始终是内容质量，不必频繁追更。</li>
+            <li><strong>全自动（每日）</strong>：GitHub Actions 每天北京时间 10:17 运行 <code>scripts/update-data.mjs</code>——核验全部仓库的星标与最近推送、重新生成「近期动态」、自动提交并触发本站重新部署；</li>
+            <li><strong>实时看板</strong>：页面加载时经 GitHub API 实时刷新（12 小时缓存），与每日核验互为双保险；</li>
+            <li><strong>趋势观察（每季度）</strong>：唯一的人工项——复核 trends 条目表述是否过时；</li>
+            <li><strong>补充新资源</strong>：在 <code>assets/data/knowledge.js</code> 对应分类添加条目（附仓库全名），下一次自动核验会把它一并纳入动态与看板，星标从此自动保鲜。</li>
           </ol>
         </div>
       </div>
