@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="面向文科背景学习者的机器学习与深度学习个人学习网站：从零基础到 NLP 应用精通。学习路线图、数学急救包、Python 够用版、NLP 通俗概念、可运行的实操项目与极简书单。">
+  <title>文科生学 NLP · 从零到应用精通的学习地图</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="topbar" id="topbar">
+    <div class="nav-inner">
+      <a class="brand" href="#/home"><span class="brand-mark">🗺️</span>文科生学 NLP</a>
+      <nav class="main-nav" id="mainNav" aria-label="主导航">
+        <a class="nav-link" href="#/home">首页</a>
+        <a class="nav-link" href="#/roadmap">路线图</a>
+        <a class="nav-link" href="#/math">数学基础</a>
+        <a class="nav-link" href="#/python">Python</a>
+        <a class="nav-link" href="#/nlp">NLP 概念</a>
+        <a class="nav-link" href="#/projects">实操项目</a>
+        <a class="nav-link" href="#/kb">知识库</a>
+        <a class="nav-link" href="#/frontier">前沿动态</a>
+        <a class="nav-link" href="#/resources">书单资源</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="切换深色模式">🌙</button>
+        <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-label="打开菜单" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= 首页 ================= -->
+    <section class="page" id="page-home">
+      <div class="container">
+        <div class="hero">
+          <span class="hero-chip">为文科背景学习者定制 · 无需数学与编程基础</span>
+          <h1>从零基础，到 <em>NLP 应用精通</em></h1>
+          <p class="hero-lede">不需要先成为数学家，也不需要先成为程序员。从你熟悉的文本出发——用一条为你量身定制的路线，学会用机器阅读、统计与分析语言。</p>
+          <div class="hero-cta">
+            <a class="btn primary" href="#/roadmap">查看学习路线 🧭</a>
+            <a class="btn ghost" href="#/projects">直接上手实验 🧪</a>
+          </div>
+          <div class="overall-box" id="overallBox">
+            <div class="overall-text">
+              <strong id="overallNum">已掌握 0 / 0 项</strong>
+              <span id="overallPct">完成 0%</span>
+            </div>
+            <div class="bar-track big"><div class="bar-fill" id="overallBar" style="width:0%"></div></div>
+            <p class="muted small">进度保存在你自己的浏览器里，随时回来接着学。</p>
+          </div>
+        </div>
+
+        <h2 class="sec-title">八大模块</h2>
+        <div class="grid-cards mod-grid">
+          <a class="mod-card" href="#/roadmap">
+            <span class="mod-icon">🧭</span>
+            <div class="mod-body">
+              <h3>学习路线图</h3>
+              <p>两条路径：算法研发向（12–18 个月）与语言学科研应用向（3–5 个月，重点推荐）。</p>
+              <div class="progress"><div class="bar-track"><div class="bar-fill" data-module-progress="roadmap"></div></div><span class="progress-num" data-module-progress="roadmap"></span></div>
+            </div>
+          </a>
+          <a class="mod-card" href="#/math">
+            <span class="mod-icon">📐</span>
+            <div class="mod-body">
+              <h3>数学基础</h3>
+              <p>线代 → 概率 → 高数的够用组合，明确标注哪些可以放心跳过推导。</p>
+              <div class="progress"><div class="bar-track"><div class="bar-fill" data-module-progress="math"></div></div><span class="progress-num" data-module-progress="math"></span></div>
+            </div>
+          </a>
+          <a class="mod-card" href="#/python">
+            <span class="mod-icon">🐍</span>
+            <div class="mod-body">
+              <h3>Python 编程</h3>
+              <p>能运行、能修改现成脚本就算达标：语法、CSV、numpy/pandas、spaCy/stanza。</p>
+              <div class="progress"><div class="bar-track"><div class="bar-fill" data-module-progress="python"></div></div><span class="progress-num" data-module-progress="python"></span></div>
+            </div>
+          </a>
+          <a class="mod-card" href="#/nlp">
+            <span class="mod-icon">💬</span>
+            <div class="mod-body">
+              <h3>NLP 概念</h3>
+              <p>词袋、TF-IDF、词向量、Token、Transformer、上下文窗口——全部用大白话讲。</p>
+              <div class="progress"><div class="bar-track"><div class="bar-fill" data-module-progress="nlp"></div></div><span class="progress-num" data-module-progress="nlp"></span></div>
+            </div>
+          </a>
+          <a class="mod-card" href="#/projects">
+            <span class="mod-icon">🧪</span>
+            <div class="mod-body">
+              <h3>实操项目</h3>
+              <p>浏览器里直接运行：Burrows-Delta 文体计量、文本相似度、语料统计，改语料看结果。</p>
+              <div class="progress"><div class="bar-track"><div class="bar-fill" data-module-progress="projects"></div></div><span class="progress-num" data-module-progress="projects"></span></div>
+            </div>
+          </a>
+          <a class="mod-card" href="#/kb">
+            <span class="mod-icon">📖</span>
+            <div class="mod-body">
+              <h3>资源知识库</h3>
+              <p>经 GitHub API 核验的 30+ 优质开源学习资源：分类、搜索、推荐理由一应俱全。</p>
+            </div>
+          </a>
+          <a class="mod-card" href="#/frontier">
+            <span class="mod-icon">📡</span>
+            <div class="mod-body">
+              <h3>前沿动态</h3>
+              <p>近期活跃项目、技术趋势观察与实时活跃度看板，可持续更新机制保证时效性。</p>
+            </div>
+          </a>
+          <a class="mod-card" href="#/resources">
+            <span class="mod-icon">📚</span>
+            <div class="mod-body">
+              <h3>书单与资源</h3>
+              <p>为语言学研究者定制的极简清单：只推荐真正用得上的，不制造焦虑。</p>
+            </div>
+          </a>
+        </div>
+
+        <h2 class="sec-title">这个网站适合谁</h2>
+        <div class="grid-cards fit-grid">
+          <div class="fit-card"><span>🎓</span><p>外语、文学、语言学背景，想给研究加上"计算"这一对翅膀。</p></div>
+          <div class="fit-card"><span>🤖</span><p>天天听说 ChatGPT 很强，但不知道从哪里学起、学多少才够用。</p></div>
+          <div class="fit-card"><span>🔬</span><p>不打算转行算法工程师，只想把数字方法真正用到自己的课题里。</p></div>
+        </div>
+
+        <div class="callout c-info how-to">
+          <strong>怎么用本站？</strong>
+          <ol>
+            <li>先看 <a href="#/roadmap">路线图</a>，选好你的路径（多数人选应用向）；</li>
+            <li>数学和 Python <em>交替推进</em>，别陷入"先补完数学"的陷阱；</li>
+            <li>每学完一块，点一下旁边的「标记已掌握」记录进度；</li>
+            <li>学到第 3 个月左右，去<a href="#/projects">实操项目区</a>换上自己的语料做实验。</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 路线图 ================= -->
+    <section class="page" id="page-roadmap">
+      <div class="container">
+        <header class="page-head">
+          <span class="crumb">模块 01 · 规划</span>
+          <h2>学习路线图</h2>
+          <p class="lede">两条路线，两种人生节奏。默认突出<strong>语言学科研应用向</strong>——它能让绝大多数文科学习者在 3–5 个月内达到"研究够用"的水平。</p>
+          <div class="progress"><div class="bar-track"><div class="bar-fill" data-module-progress="roadmap"></div></div><span class="progress-num" data-module-progress="roadmap"></span></div>
+        </header>
+
+        <div class="paths">
+          <!-- 路径 A：应用向 -->
+          <article class="path reco">
+            <span class="ribbon">⭐ 重点推荐</span>
+            <div class="path-head">
+              <h3>路线 A · 语言学科研应用向</h3>
+              <div class="path-meta">
+                <span class="chip">周期 3–5 个月</span>
+                <span class="chip">每天 1–2 小时即可</span>
+              </div>
+            </div>
+            <p class="path-aim"><strong>目标：</strong>能用 Python 处理自己的语料、跑通文本分析实验、读懂 NLP 论文的"方法"部分，并把大模型当成靠谱（但需核查）的研究助手。</p>
+            <ol class="steps">
+              <li class="step">
+                <button class="check-btn round" type="button" data-pid="rm-a-1" data-module="roadmap" aria-label="标记完成：Python 速成"></button>
+                <div>
+                  <div class="step-head"><strong>Python 速成</strong><span class="chip">第 1–3 周</span></div>
+                  <p>在 Colab 里跑通第一个脚本；掌握变量、列表、字典、循环、函数"五件套"，标准是能改别人的代码。</p>
+                </div>
+              </li>
+              <li class="step">
+                <button class="check-btn round" type="button" data-pid="rm-a-2" data-module="roadmap" aria-label="标记完成：数学急救包"></button>
+                <div>
+                  <div class="step-head"><strong>数学急救包</strong><span class="chip">与第 1 步同步</span></div>
+                  <p>只学三样：向量、余弦相似度、概率直觉。高等数学暂且放到一边——真的用不到多少。</p>
+                </div>
+              </li>
+              <li class="step">
+                <button class="check-btn round" type="button" data-pid="rm-a-3" data-module="roadmap" aria-label="标记完成：数据处理"></button>
+                <div>
+                  <div class="step-head"><strong>数据处理</strong><span class="chip">第 2 个月</span></div>
+                  <p>文件与 CSV 读写；用 numpy 算相似度，用 pandas 管理语料表格、做分组统计。</p>
+                </div>
+              </li>
+              <li class="step">
+                <button class="check-btn round" type="button" data-pid="rm-a-4" data-module="roadmap" aria-label="标记完成：文本工具与 NLP 概念"></button>
+                <div>
+                  <div class="step-head"><strong>文本工具与 NLP 概念</strong><span class="chip">第 3 个月</span></div>
+                  <p>spaCy / stanza 分词与标注；搞懂词袋、TF-IDF、词向量、Token、Transformer 是什么、为什么行得通。</p>
+                </div>
+              </li>
+              <li class="step">
+                <button class="check-btn round" type="button" data-pid="rm-a-5" data-module="roadmap" aria-label="标记完成：实操项目"></button>
+                <div>
+                  <div class="step-head"><strong>实操项目</strong><span class="chip">第 4 个月</span></div>
+                  <p>完成本站三个实验：Burrows-Delta 文体计量、文本相似度、语料统计——然后全部换上你自己的语料。</p>
+                </div>
+              </li>
+              <li class="step">
+                <button class="check-btn round" type="button" data-pid="rm-a-6" data-module="roadmap" aria-label="标记完成：走向研究"></button>
+                <div>
+                  <div class="step-head"><strong>走向研究</strong><span class="chip">第 5 个月</span></div>
+                  <p>复现一篇计算人文 / 计量文体学论文的核心实验；学会把大模型用于辅助标注与写作，并知道如何防住它的幻觉。</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+
+          <!-- 路径 B：研发向 -->
+          <article class="path">
+            <div class="path-head">
+              <h3>路线 B · 算法研发向</h3>
+              <div class="path-meta">
+                <span class="chip">周期 12–18 个月</span>
+                <span class="chip">需要大块时间投入</span>
+              </div>
+            </div>
+            <p class="path-aim"><strong>目标：</strong>能读懂论文公式、复现和改造模型，适合读博、转算法岗，或对模型内部原理有强烈好奇心的人。</p>
+            <ol class="steps">
+              <li class="step">
+                <button class="check-btn round" type="button" data-pid="rm-b-1" data-module="roadmap" aria-label="标记完成：高等数学"></button>
+                <div>
+                  <div class="step-head"><strong>高等数学</strong><span class="chip">第 1–2 月</span></div>
+                  <p>极限与连续、导数与偏导、链式法则、梯度——后面一切的地基。</p>
+                </div>
+              </li>
+              <li class="step">
+                <button class="check-btn round" type="button" data-pid="rm-b-2" data-module="roadmap" aria-label="标记完成：线性代数"></button>
+                <div>
+                  <div class="step-head"><strong>线性代数</strong><span class="chip">第 3–4 月</span></div>
+                  <p>矩阵运算、秩、特征值与特征向量、SVD——这次要学"为什么"，不只是"是什么"。</p>
+                </div>
+              </li>
+              <li class="step">
+                <button class="check-btn round" type="button" data-pid="rm-b-3" data-module="roadmap" aria-label="标记完成：概率论与统计"></button>
+                <div>
+                  <div class="step-head"><strong>概率论与统计</strong><span class="chip">第 5–6 月</span></div>
+                  <p>概率空间、常见分布、贝叶斯定理、假设检验与参数估计。</p>
+                </div>
+              </li>
+              <li class="step">
+                <button class="check-btn round" type="button" data-pid="rm-b-4" data-module="roadmap" aria-label="标记完成：Python 与工程基础"></button>
+                <div>
+                  <div class="step-head"><strong>Python 与工程基础</strong><span class="chip">第 6–7 月</span></div>
+                  <p>语法进阶、numpy、数据结构与算法入门、命令行与 Git。</p>
+                </div>
+              </li>
+              <li class="step">
+                <button class="check-btn round" type="button" data-pid="rm-b-5" data-module="roadmap" aria-label="标记完成：机器学习"></button>
+                <div>
+                  <div class="step-head"><strong>机器学习</strong><span class="chip">第 8–10 月</span></div>
+                  <p>线性 / 逻辑回归、决策树、SVM、交叉验证与评估指标，配 Scikit-learn 实战。</p>
+                </div>
+              </li>
+              <li class="step">
+                <button class="check-btn round" type="button" data-pid="rm-b-6" data-module="roadmap" aria-label="标记完成：深度学习"></button>
+                <div>
+                  <div class="step-head"><strong>深度学习</strong><span class="chip">第 11–13 月</span></div>
+                  <p>神经网络、反向传播、CNN/RNN、PyTorch 实战，亲手训练几个小模型。</p>
+                </div>
+              </li>
+              <li class="step">
+                <button class="check-btn round" type="button" data-pid="rm-b-7" data-module="roadmap" aria-label="标记完成：NLP 专精"></button>
+                <div>
+                  <div class="step-head"><strong>NLP 专精</strong><span class="chip">第 13–18 月</span></div>
+                  <p>词向量 → 序列模型 → Transformer → 预训练与微调 → 大语言模型，跟踪领域前沿。</p>
+                </div>
+              </li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="card compare-card">
+          <h3>怎么选？一张表看清</h3>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th></th><th>路线 A · 应用向 ⭐</th><th>路线 B · 研发向</th></tr></thead>
+              <tbody>
+                <tr><th>核心目标</th><td>会<strong>用</strong>：跑通分析、读懂方法</td><td>会<strong>造</strong>：复现模型、读懂公式</td></tr>
+                <tr><th>时间周期</th><td>3–5 个月</td><td>12–18 个月</td></tr>
+                <tr><th>数学要求</th><td>够用包（约 10 个概念）</td><td>系统学完三件套</td></tr>
+                <tr><th>编程要求</th><td>会跑、会改现成脚本</td><td>会写、会调、会工程化</td></tr>
+                <tr><th>适合人群</th><td>在读研究生、语言学者、计算人文爱好者</td><td>计划转方向 / 读博 / 算法岗</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="callout c-tip">
+            两条路线不是单选题。最常见且最划算的走法是：<strong>先走应用向做出第一个成果，再按需回头补理论</strong>——有了正反馈，理论也更容易学进去。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 数学基础 ================= -->
+    <section class="page" id="page-math">
+      <div class="container">
+        <header class="page-head">
+          <span class="crumb">模块 02 · 地基</span>
+          <h2>数学基础</h2>
+          <p class="lede">按 <strong>线性代数 → 概率论 → 高等数学</strong> 的优先级组织：线代决定你能不能看懂词向量和相似度，概率决定你能不能读懂语言模型和统计检验，高数只需要两个概念帮你理解"训练"在干嘛。</p>
+          <div class="progress"><div class="bar-track"><div class="bar-fill" data-module-progress="math"></div></div><span class="progress-num" data-module-progress="math"></span></div>
+          <div class="legend">
+            <span class="badge b-must">必学</span>
+            <span class="badge b-rec">推荐</span>
+            <span class="badge b-know">了解即可</span>
+            <span class="badge b-skip">可跳过</span>
+          </div>
+        </header>
+
+        <!-- 线代 -->
+        <div class="group-head">
+          <h3>① 线性代数 <span class="stars">优先级 ★★★</span></h3>
+          <p>在 NLP 的世界里，一切皆向量：文档、词、句子都会变成一串数字，而线性代数就是研究"一串数字怎么算"的学问。</p>
+        </div>
+        <div class="kgrid">
+          <article class="kcard">
+            <div class="kcard-head"><h4>向量是什么</h4><span class="badge b-must">必学</span></div>
+            <p class="k-oneline">一串按顺序排好的数字，比如 [2, 1, 0, 3]。</p>
+            <dl class="k-meta">
+              <div><dt>NLP 里用在哪</dt><dd>一篇文档的"词频清单"就是一个向量；计算机靠比较向量来比较文本。</dd></div>
+              <div><dt>学到什么程度</dt><dd>理解"向量 = 数字列表"、会算长度即可。行列式、线性方程组可跳过。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-lin-1" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard">
+            <div class="kcard-head"><h4>点积与向量夹角</h4><span class="badge b-must">必学</span></div>
+            <p class="k-oneline">对应位置相乘再求和，一个数字衡量两个向量"方向有多一致"。</p>
+            <dl class="k-meta">
+              <div><dt>NLP 里用在哪</dt><dd>所有相似度计算的第一块积木。</dd></div>
+              <div><dt>学到什么程度</dt><dd>会按公式手算一个 4 维点积即可。几何证明可跳过。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-lin-2" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard core">
+            <div class="kcard-head"><h4>余弦相似度</h4><span class="badge b-core">必学 · 核心</span></div>
+            <p class="formula">cos θ = <span class="frac"><span>A · B</span><span>|A| × |B|</span></span></p>
+            <p class="k-oneline">两个向量夹角的余弦：1 表示方向完全相同，0 表示无关。</p>
+            <dl class="k-meta">
+              <div><dt>NLP 里用在哪</dt><dd>文本相似度、语义检索、文档聚类的标配。你必须能向导师讲清楚它。</dd></div>
+              <div><dt>学到什么程度</dt><dd>会用 + 能解释"为什么用余弦而不是直接比距离"（只看方向不看长短，长短文章可公平比较）。推导过程可跳过。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-lin-3" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard">
+            <div class="kcard-head"><h4>矩阵与矩阵乘法</h4><span class="badge b-must">必学</span></div>
+            <p class="k-oneline">把向量排成表格就是矩阵；乘法规则是"行点列"。</p>
+            <dl class="k-meta">
+              <div><dt>NLP 里用在哪</dt><dd>词袋矩阵、词向量表、Transformer 的注意力，本质上全是矩阵乘法。</dd></div>
+              <div><dt>学到什么程度</dt><dd>知道维度规则（m×n 乘 n×k）、见过一次 2×2 手算即可。逆矩阵、秩可暂缓。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-lin-4" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard">
+            <div class="kcard-head"><h4>转置与单位矩阵</h4><span class="badge b-know">了解即可</span></div>
+            <p class="k-oneline">转置 = 沿对角线翻面；单位矩阵 = 乘法里的"1"。</p>
+            <dl class="k-meta">
+              <div><dt>NLP 里用在哪</dt><dd>代码里到处是 <code>A.T</code> 和 <code>I</code>，认识符号、读到不慌即可。</dd></div>
+              <div><dt>学到什么程度</dt><dd>五分钟看完就走。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-lin-5" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard">
+            <div class="kcard-head"><h4>SVD 奇异值分解</h4><span class="badge b-rec">推荐 · 推导可跳</span></div>
+            <p class="k-oneline">把任何大矩阵拆成三个矩阵，保留最重要的几个"方向"，其余丢掉。</p>
+            <dl class="k-meta">
+              <div><dt>NLP 里用在哪</dt><dd>潜在语义分析（LSA）用它把"词-文档"矩阵压缩成主题；是一切降维方法的思想源头。</dd></div>
+              <div><dt>学到什么程度</dt><dd>知道它是"压缩矩阵、提取主题"的工具即可。如何求解完全可跳过。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-lin-6" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard skip-card">
+            <div class="kcard-head"><h4>特征值与对角化</h4><span class="badge b-skip">可跳过</span></div>
+            <p class="k-oneline">找到矩阵变换中"方向不变"的那些特殊向量。</p>
+            <dl class="k-meta">
+              <div><dt>学到什么程度</dt><dd>应用向暂时完全用不到；走研发向时再回来学，毫无心理负担。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-lin-7" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+        </div>
+
+        <!-- 概率 -->
+        <div class="group-head">
+          <h3>② 概率论与统计 <span class="stars">优先级 ★★</span></h3>
+          <p>语言天生是随机的——下一个词是什么，永远带点运气。概率论就是描述这种不确定性的语言。</p>
+        </div>
+        <div class="kgrid">
+          <article class="kcard">
+            <div class="kcard-head"><h4>概率与条件概率</h4><span class="badge b-must">必学</span></div>
+            <p class="k-oneline">P(下一个词是"猫" | 前文是"我养了一只…")——语言模型的全部秘密就写在条件概率里。</p>
+            <dl class="k-meta">
+              <div><dt>NLP 里用在哪</dt><dd>从老式的 n-gram 到 GPT，都在做同一件事：估计条件概率。</dd></div>
+              <div><dt>学到什么程度</dt><dd>理解 P(A|B) 的含义和乘法公式。测度论可跳过（请放心跳过）。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-prob-1" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard">
+            <div class="kcard-head"><h4>朴素贝叶斯</h4><span class="badge b-rec">推荐</span></div>
+            <p class="k-oneline">"朴素"地假设词与词互不影响，然后反推文本属于哪个类别。</p>
+            <dl class="k-meta">
+              <div><dt>NLP 里用在哪</dt><dd>垃圾邮件过滤、情感分类的经典基线，几行代码就能跑。</dd></div>
+              <div><dt>学到什么程度</dt><dd>能用自己的话讲清思路即可，公式推导可跳过。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-prob-2" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard core">
+            <div class="kcard-head"><h4>假设检验与 p 值</h4><span class="badge b-core">推荐 · 科研刚需</span></div>
+            <p class="k-oneline">p 值 = 假如两组真的没差别，出现现在这么极端数据的概率；p &lt; 0.05 就拒绝"没差别"的假设。</p>
+            <dl class="k-meta">
+              <div><dt>NLP / 语言学里用在哪</dt><dd>比较两位作家、两个时代的用词差异是否显著——语料库论文的审稿人一定会问。</dd></div>
+              <div><dt>学到什么程度</dt><dd>理解逻辑链（原假设 → 统计量 → p 值 → 结论），不背公式表。各检验的推导可跳过。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-prob-3" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard">
+            <div class="kcard-head"><h4>卡方检验</h4><span class="badge b-rec">推荐</span></div>
+            <p class="k-oneline">数一数"预期 vs 实际"差多少，判断两组频数差异是否显著。</p>
+            <dl class="k-meta">
+              <div><dt>NLP / 语言学里用在哪</dt><dd>语料库语言学最常用的显著性检验，搭配 2×2 列联表使用。</dd></div>
+              <div><dt>学到什么程度</dt><dd>会用软件算出结果并正确解读即可。手工计算过程可跳过。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-prob-4" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard">
+            <div class="kcard-head"><h4>常见分布：二项、正态、Zipf</h4><span class="badge b-know">了解即可</span></div>
+            <p class="k-oneline">词频分布有个著名规律：Zipf 定律——少数词出现极多，大量词只出现一两次。</p>
+            <dl class="k-meta">
+              <div><dt>学到什么程度</dt><dd>知道 Zipf 定律这个趣闻，能解释"为什么高频词都是功能词"，足够了。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-prob-5" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard skip-card">
+            <div class="kcard-head"><h4>大数定律与中心极限定理</h4><span class="badge b-skip">可跳过</span></div>
+            <p class="k-oneline">样本够大，平均数会稳定下来，且近似服从正态分布。</p>
+            <dl class="k-meta">
+              <div><dt>学到什么程度</dt><dd>知道名字和上面这句话就够了，证明请直接跳过。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-prob-6" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+        </div>
+
+        <!-- 高数 -->
+        <div class="group-head">
+          <h3>③ 高等数学 <span class="stars">优先级 ★</span></h3>
+          <p>好消息：对应用向来说，高数只需要两个词——导数和梯度。它们帮你理解"训练模型"到底在干嘛，而不是用来做题。</p>
+        </div>
+        <div class="kgrid">
+          <article class="kcard">
+            <div class="kcard-head"><h4>导数 = 变化率</h4><span class="badge b-must">必学概念</span></div>
+            <p class="k-oneline">函数在某一点"变化有多快"，图像上就是斜率。</p>
+            <dl class="k-meta">
+              <div><dt>NLP 里用在哪</dt><dd>"训练"就是不断问：把参数挪一点点，错误是变多还是变少？——这就是在用导数。</dd></div>
+              <div><dt>学到什么程度</dt><dd>建立直觉即可，不求会算。求导法则可跳过。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-calc-1" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard">
+            <div class="kcard-head"><h4>梯度 = 最陡上坡方向</h4><span class="badge b-must">必学概念</span></div>
+            <p class="k-oneline">把很多参数的导数打包成一个向量，它指向"变差最快的方向"；反着走，就叫"梯度下降"。</p>
+            <dl class="k-meta">
+              <div><dt>NLP 里用在哪</dt><dd>你听说过的所有"训练大模型"，核心循环就是这一句话。</dd></div>
+              <div><dt>学到什么程度</dt><dd>能解释"为什么梯度下降要反方向走"即可。偏导数计算可跳过。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-calc-2" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard">
+            <div class="kcard-head"><h4>链式法则</h4><span class="badge b-know">了解即可</span></div>
+            <p class="k-oneline">复合函数逐层求导；"反向传播"就是它在大网络里的机械化应用。</p>
+            <dl class="k-meta">
+              <div><dt>学到什么程度</dt><dd>记住"逐层求导"四个字，读科普文章就够用了。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="math-calc-3" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard skip-card">
+            <div class="kcard-head"><h4>积分</h4><span class="badge b-skip">可跳过</span></div>
+            <dl class="k-meta"><div><dt>学到什么程度</dt><dd>应用向完全不需要。</dd></div></dl>
+            <button class="check-btn" type="button" data-pid="math-calc-4" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+          <article class="kcard skip-card">
+            <div class="kcard-head"><h4>泰勒展开、极限证明、多元微积分</h4><span class="badge b-skip">可跳过</span></div>
+            <dl class="k-meta"><div><dt>学到什么程度</dt><dd>应用向不需要；研发向第 1–2 个月回头系统补。</dd></div></dl>
+            <button class="check-btn" type="button" data-pid="math-calc-5" data-module="math"><span class="ck"></span>标记已掌握</button>
+          </article>
+        </div>
+
+        <div class="callout c-tip">
+          <strong>✂️ 现在就可以放心跳过的清单：</strong>行列式与线性方程组、逆矩阵、特征值对角化、测度论、各种分布的推导、积分、泰勒展开、多元微积分、极限的 ε-δ 定义。等真的用到再回来查，一点都不晚——<em>先动手做出来，再回头补原理，是文科生学技术最快的路。</em>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Python ================= -->
+    <section class="page" id="page-python">
+      <div class="container">
+        <header class="page-head">
+          <span class="crumb">模块 03 · 工具</span>
+          <h2>Python 编程</h2>
+          <p class="lede">目标不是"会写程序"，而是<strong>会跑程序、会改程序</strong>。每一节都配了能直接粘贴运行的代码。达标线只有三条：能运行 ✓ 能改参数 ✓ 能看懂报错的前三行 ✓</p>
+          <div class="progress"><div class="bar-track"><div class="bar-fill" data-module-progress="python"></div></div><span class="progress-num" data-module-progress="python"></span></div>
+        </header>
+
+        <div class="kgrid">
+          <article class="kcard wide">
+            <div class="kcard-head"><h4>第 0 步 · 环境搭建</h4><span class="badge b-must">必学</span></div>
+            <div class="env-opts">
+              <div class="env-opt">
+                <h5>方案一 · Google Colab（推荐）</h5>
+                <p>打开浏览器就能写 Python，免费、免安装、自带 AI 补全。适合不想折腾环境的人。<br><a href="https://colab.research.google.com" target="_blank" rel="noopener">colab.research.google.com ↗</a></p>
+              </div>
+              <div class="env-opt">
+                <h5>方案二 · 本地安装</h5>
+                <p>安装 Anaconda（一路下一步），打开自带的 Jupyter Notebook。适合想离线工作、处理本地文件的人。</p>
+              </div>
+            </div>
+            <div class="code-block"><div class="code-head"><span class="code-title">你的第一行代码</span><button class="mini-btn copy-btn" type="button">复制</button></div>
+<pre><code>print("你好，NLP！")</code></pre></div>
+            <button class="check-btn" type="button" data-pid="py-1" data-module="python"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard wide">
+            <div class="kcard-head"><h4>基础语法 · 够用五件套</h4><span class="badge b-must">必学</span></div>
+            <p class="k-oneline">变量、列表、字典、循环、函数——90% 的文本处理脚本只用到这五样。</p>
+            <div class="code-block"><div class="code-head"><span class="code-title">basics.py</span><button class="mini-btn copy-btn" type="button">复制</button></div>
+<pre><code>name = "杜甫"                    # 字符串
+years = [712, 770]               # 列表：一串东西
+poet = {"name": "李白", "朝代": "唐"}  # 字典：标签 → 内容
+
+for y in years:                  # 循环：逐个处理
+    print(y)
+
+def greet(who):                  # 函数：打包复用
+    return f"你好，{who}！"
+
+print(greet(name))</code></pre></div>
+            <p class="muted small">练法：先原样跑通 → 改成一个数字看变化 → 换成你自己的名字和书目。</p>
+            <button class="check-btn" type="button" data-pid="py-2" data-module="python"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard wide">
+            <div class="kcard-head"><h4>字符串处理 · NLP 最常用</h4><span class="badge b-must">必学</span></div>
+            <p class="k-oneline">文本分析的"刀工"：切、拼、去空格、替换、切片。</p>
+            <div class="code-block"><div class="code-head"><span class="code-title">strings.py</span><button class="mini-btn copy-btn" type="button">复制</button></div>
+<pre><code>line = "  春眠不觉晓，处处闻啼鸟。  "
+line = line.strip()            # 去掉首尾空格
+print(len(line))               # 字符数
+print(line.split("，"))        # 按逗号切成列表
+print(line.replace("春", "秋"))  # 替换
+print(line[0:5])               # 切片：取前 5 个字符</code></pre></div>
+            <button class="check-btn" type="button" data-pid="py-3" data-module="python"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard wide">
+            <div class="kcard-head"><h4>文件与 CSV 读写</h4><span class="badge b-must">必学</span></div>
+            <p class="k-oneline">你的语料就是文件。学会读进来、写出去，研究才能开始。</p>
+            <div class="code-block"><div class="code-head"><span class="code-title">read_csv.py</span><button class="mini-btn copy-btn" type="button">复制</button></div>
+<pre><code>import csv
+
+# 读取语料表格（假设有 "作者" "篇名" 两列）
+with open("corpus.csv", encoding="utf-8") as f:
+    for row in csv.DictReader(f):
+        print(row["作者"], row["篇名"])
+
+# 把结果写出去
+with open("result.csv", "w", encoding="utf-8", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["篇名", "字数"])
+    writer.writerow(["静夜思", 20])</code></pre></div>
+            <p class="muted small">切记：读中文文件永远带上 <code>encoding="utf-8"</code>，否则 Windows 上必乱码。</p>
+            <button class="check-btn" type="button" data-pid="py-4" data-module="python"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard wide">
+            <div class="kcard-head"><h4>numpy · 向量运算</h4><span class="badge b-rec">推荐</span></div>
+            <p class="k-oneline">把"一串数字"交给 numpy，相似度十行搞定——这就是数学板块里余弦相似度的落地。</p>
+            <div class="code-block"><div class="code-head"><span class="code-title">cosine.py</span><button class="mini-btn copy-btn" type="button">复制</button></div>
+<pre><code>import numpy as np
+
+def cosine(a, b):
+    return a @ b / (np.linalg.norm(a) * np.linalg.norm(b))
+
+doc1 = np.array([2, 1, 0, 3])   # 文档 1 的词频向量
+doc2 = np.array([1, 1, 1, 2])   # 文档 2 的词频向量
+print(cosine(doc1, doc2))       # 0.909 —— 相当相似</code></pre></div>
+            <button class="check-btn" type="button" data-pid="py-5" data-module="python"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard wide">
+            <div class="kcard-head"><h4>pandas · 语料表格管理</h4><span class="badge b-rec">推荐</span></div>
+            <p class="k-oneline">把语料元数据（作者、年代、体裁……）当成 Excel 来筛、来数。</p>
+            <div class="code-block"><div class="code-head"><span class="code-title">pandas_demo.py</span><button class="mini-btn copy-btn" type="button">复制</button></div>
+<pre><code>import pandas as pd
+
+df = pd.read_csv("corpus.csv")        # 读入表格
+print(df.head())                       # 看前 5 行
+print(df["年代"].value_counts())       # 按年代统计篇数
+tang = df[df["年代"] == "唐"]          # 筛选：只要唐代的
+tang.to_csv("tang.csv", index=False)   # 存出子集</code></pre></div>
+            <button class="check-btn" type="button" data-pid="py-6" data-module="python"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard wide">
+            <div class="kcard-head"><h4>spaCy 与 stanza · 文本工具入门</h4><span class="badge b-rec">推荐</span></div>
+            <p class="k-oneline">现成的工业级工具：分词、词性标注、词形还原、命名实体识别，一行加载。</p>
+            <div class="code-block"><div class="code-head"><span class="code-title">spacy_demo.py · 英文</span><button class="mini-btn copy-btn" type="button">复制</button></div>
+<pre><code># 终端执行: pip install spacy
+# 终端执行: python -m spacy download en_core_web_sm
+import spacy
+
+nlp = spacy.load("en_core_web_sm")
+doc = nlp("Chomsky argued that language is innate.")
+
+for token in doc:
+    print(token.text, token.pos_, token.lemma_)   # 词 / 词性 / 原形
+
+for ent in doc.ents:
+    print(ent.text, ent.label_)   # 实体识别: Chomsky PERSON</code></pre></div>
+            <div class="code-block"><div class="code-head"><span class="code-title">stanza_demo.py · 中文</span><button class="mini-btn copy-btn" type="button">复制</button></div>
+<pre><code># 终端执行: pip install stanza
+import stanza
+stanza.download("zh")   # 首次运行会下载中文模型，耐心等
+
+nlp = stanza.Pipeline("zh", processors="tokenize,pos,lemma")
+doc = nlp("语言是人类独有的能力。")
+for sentence in doc.sentences:
+    for word in sentence.words:
+        print(word.text, word.pos, word.lemma)</code></pre></div>
+            <button class="check-btn" type="button" data-pid="py-7" data-module="python"><span class="ck"></span>标记已掌握</button>
+          </article>
+        </div>
+
+        <div class="callout c-info">
+          <strong>🐍 程序员的"够用"哲学：</strong>
+          ① 复制示例跑通；② 改一个数字，观察变化；③ 改一句话，换成自己的数据；④ 报错了就把信息丢给搜索引擎或 AI。
+          做到这四步，你就已经超过大多数同行了。另外，请把 ChatGPT / Claude 当成 24 小时助教：把报错和代码贴给它，加一句"请解释给文科生听"。
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NLP 概念 ================= -->
+    <section class="page" id="page-nlp">
+      <div class="container">
+        <header class="page-head">
+          <span class="crumb">模块 04 · 观念</span>
+          <h2>NLP 概念</h2>
+          <p class="lede">不推导、不实现，只求你<strong>真的明白每个概念在说什么</strong>。读完这一页，你可以自信地听懂一场 NLP 讲座，也听得懂工程师同事在说什么。</p>
+          <div class="progress"><div class="bar-track"><div class="bar-fill" data-module-progress="nlp"></div></div><span class="progress-num" data-module-progress="nlp"></span></div>
+        </header>
+
+        <div class="kgrid concept-grid">
+          <article class="kcard">
+            <div class="kcard-head"><h4>词袋 Bag of Words</h4><span class="chip">约 5 分钟</span></div>
+            <p class="analogy">打个比方：把一篇文章拆成一堆词，全部倒进一个袋子，只数每个词出现了几次，<em>完全不管顺序</em>。</p>
+            <dl class="k-meta">
+              <div><dt>例子</dt><dd>「我喜欢语言学」→ {我: 1, 喜欢: 1, 语言学: 1}</dd></div>
+              <div><dt>为什么重要</dt><dd>这是把文字变成数字的第一步——计算机不识字，只认数字。</dd></div>
+              <div><dt>局限</dt><dd>「我爱你」和「你爱我」在词袋里一模一样，语序信息全丢了。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-1" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>TF-IDF</h4><span class="chip">约 10 分钟</span></div>
+            <p class="analogy">打个比方：一个词重要不重要，看两点——它<em>在这篇文章里</em>出现得多不多（TF），以及它是不是"烂大街"的词（IDF）。「的」到处都有，不值钱；「语料库」只在少数文章出现，很值钱。</p>
+            <dl class="k-meta">
+              <div><dt>用途</dt><dd>关键词提取、文本相似度、搜索引擎的祖师爷。</dd></div>
+              <div><dt>一句话总结</dt><dd>TF-IDF = 出现得多 × 别处少见的词，才是这篇文章的真面目。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-2" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>词向量 Word Embedding</h4><span class="chip">约 15 分钟</span></div>
+            <p class="analogy">打个比方：给每个词一个"语义坐标"，意思相近的词在地图上住得近。「国王」和「女王」是邻居，「国王」和「午饭」相距十万八千里。</p>
+            <dl class="k-meta">
+              <div><dt>著名的魔法</dt><dd>king − man + woman ≈ queen：语义关系变成了坐标运算。</dd></div>
+              <div><dt>代表方法</dt><dd>Word2Vec、GloVe；今天大模型的底层仍保留着这个思想。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-3" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>Token</h4><span class="chip">约 10 分钟</span></div>
+            <p class="analogy">打个比方：大模型读书时不是按"词"也不是按"字"，而是按 <em>token</em>——一种介于字和词之间的碎片。「人工智能」可能被切成「人工」+「智能」两块。</p>
+            <dl class="k-meta">
+              <div><dt>冷知识</dt><dd>为什么大模型数不对 "strawberry" 里有几个 r？因为它看到的不是字母，而是 token。</dd></div>
+              <div><dt>实用</dt><dd>API 按 token 计费；"上下文长度"说的也是 token 数。1 个汉字 ≈ 1–2 个 token。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-4" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>Transformer 与注意力</h4><span class="chip">约 20 分钟</span></div>
+            <p class="analogy">打个比方：读到「它」这个字时，<em>注意力机制</em>让模型回头看全句，自己判断「它」指的是前面的哪个词，并给相关的词分配更高的"关注度"。</p>
+            <dl class="k-meta">
+              <div><dt>划时代之处</dt><dd>老方法（RNN）一个字一个字顺着读；Transformer 让所有词<em>同时</em>互相看（并行计算），又快又能抓住长距离关系。GPT、BERT 里的 T 都指它。</dd></div>
+              <div><dt>需要数学吗</dt><dd>不需要。你只需记住一个词：注意力（Attention）。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-5" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>上下文窗口 Context Window</h4><span class="chip">约 5 分钟</span></div>
+            <p class="analogy">打个比方：模型的"工作记忆"。它一次只能看见窗口里的内容——比如 8K、128K 个 token。</p>
+            <dl class="k-meta">
+              <div><dt>后果一</dt><dd>文章太长，开头的部分会被"挤出去"，模型就忘了。</dd></div>
+              <div><dt>后果二</dt><dd>于是有了 RAG：先检索出最相关的几段，再塞进窗口让模型读。别被术语吓到——本质是"先划重点，再答题"。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-6" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>预训练与微调</h4><span class="chip">约 10 分钟</span></div>
+            <p class="analogy">打个比方：预训练 = 让模型读完整个图书馆，学会"接话"；微调 = 给这个博学的人做岗前培训，适应你的具体任务。</p>
+            <dl class="k-meta">
+              <div><dt>与你相关</dt><dd>你平时写提示词（prompt）调教 ChatGPT，是一种零成本的"轻量调教"，很多时候不必真的微调。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-7" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard warn-card">
+            <div class="kcard-head"><h4>⚠️ 幻觉 Hallucination</h4><span class="badge b-must">科研必读</span></div>
+            <p class="analogy">大模型会<em>一本正经地编造</em>不存在的文献、页码和数据——因为它的本职是"接最像的话"，不是"查证事实"。</p>
+            <dl class="k-meta">
+              <div><dt>科研守则</dt><dd>AI 给的每一条参考文献，都必须亲手核实原文；关键论证，不让 AI 代劳。审稿人迟早会找上门。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-8" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 实操项目 ================= -->
+    <section class="page" id="page-projects">
+      <div class="container">
+        <header class="page-head">
+          <span class="crumb">模块 05 · 实战</span>
+          <h2>实操项目</h2>
+          <p class="lede">三个实验都可以<strong>直接在浏览器里运行</strong>：改掉文本框里的语料，点按钮，看结果。每个项目都附了对应的 Python 脚本，等你装好环境就能在本地跑同样的东西。</p>
+          <div class="progress"><div class="bar-track"><div class="bar-fill" data-module-progress="projects"></div></div><span class="progress-num" data-module-progress="projects"></span></div>
+        </header>
+
+        <!-- 项目一：文本相似度 -->
+        <article class="proj">
+          <div class="proj-head">
+            <h3>项目一 · 文本相似度计算</h3>
+            <div><span class="chip">难度 ★☆☆</span><span class="chip">约 30 分钟</span></div>
+          </div>
+          <p class="proj-use">用到的概念：<a href="#/nlp">词袋 · TF-IDF</a>、<a href="#/math">余弦相似度</a></p>
+          <p><strong>原理白话版：</strong>把每篇文档变成"词袋向量"（中文按单字切分，不用分词也能用），再用 TF-IDF 给字加权，最后算两两之间的余弦相似度。数值越接近 1，两篇文本"话题"越像。</p>
+
+          <div class="lab">
+            <div class="lab-title">🧪 在线实验室 · 改掉下面的文本再点按钮</div>
+            <div class="lab-grid" id="simInputs">
+              <label class="lab-label">文档 1<textarea>春天的西湖游人如织，苏堤春晓桃红柳绿，断桥边杨柳依依。</textarea></label>
+              <label class="lab-label">文档 2<textarea>夜晚的西湖别有韵味，湖面倒映着灯火，断桥与雷峰塔遥遥相望。</textarea></label>
+              <label class="lab-label">文档 3<textarea>梯度下降是训练神经网络最常用的优化算法，沿着损失下降的方向更新参数。</textarea></label>
+              <label class="lab-label">文档 4<textarea>反向传播利用链式法则逐层计算梯度，神经网络通过不断更新参数来降低损失。</textarea></label>
+              <label class="lab-label">文档 5<textarea>杭帮菜讲究清淡鲜嫩，西湖醋鱼与龙井虾仁是最有名的两道菜。</textarea></label>
+            </div>
+            <div class="lab-actions">
+              <button class="btn primary" id="simRun" type="button">计算相似度</button>
+              <button class="btn ghost" id="simReset" type="button">恢复示例语料</button>
+            </div>
+            <div class="result" id="simOut" aria-live="polite"></div>
+          </div>
+
+          <div class="code-block"><div class="code-head"><span class="code-title">similarity.py · Python 版（sklearn）</span><button class="mini-btn copy-btn" type="button">复制</button><button class="mini-btn dl-btn" type="button" data-fname="similarity.py">下载 .py</button></div>
+<pre><code>from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+docs = [
+    "春天的西湖游人如织，苏堤春晓桃红柳绿，断桥边杨柳依依。",
+    "夜晚的西湖别有韵味，湖面倒映着灯火，断桥与雷峰塔遥遥相望。",
+    "梯度下降是训练神经网络最常用的优化算法，沿着损失下降的方向更新参数。",
+    "反向传播利用链式法则逐层计算梯度，神经网络通过不断更新参数来降低损失。",
+    "杭帮菜讲究清淡鲜嫩，西湖醋鱼与龙井虾仁是最有名的两道菜。",
+]
+
+# 中文没有空格分词，改用"字符级"分析器（按单字切分，短文本效果最好）
+vec = TfidfVectorizer(analyzer="char")
+matrix = vec.fit_transform(docs)
+sim = cosine_similarity(matrix)
+
+for i in range(len(docs)):
+    for j in range(i + 1, len(docs)):
+        print(f"文档{i+1} vs 文档{j+1}: {sim[i][j]:.3f}")
+# pip install scikit-learn 后即可运行</code></pre></div>
+
+          <div class="callout c-tip"><strong>延伸挑战：</strong>① 把默认文档换成你论文的三段摘要，看它们像不像；② 增加第 6 篇文档；③ 想一想：为什么"杭帮菜"那篇和西湖那两篇也有一点像？（提示：共享了「西湖」二字）</div>
+          <button class="check-btn" type="button" data-pid="proj-1" data-module="projects"><span class="ck"></span>完成此项目</button>
+        </article>
+
+        <!-- 项目二：Burrows-Delta -->
+        <article class="proj">
+          <div class="proj-head">
+            <h3>项目二 · Burrows-Delta 文体计量</h3>
+            <div><span class="chip">难度 ★★☆</span><span class="chip">约 45 分钟</span></div>
+          </div>
+          <p class="proj-use">用到的概念：<a href="#/math">向量 · z 分数</a>、<a href="#/nlp">词频分布</a>、计算文体学</p>
+          <p><strong>原理白话版：</strong>每位作者都有自己的"高频字指纹"——有人爱用「之乎者也」，有人离不开「真的超特别」。把各文本最常用字的出现比例转成 z 分数，再算待判定文本与每位作者平均风格的平均差距（Delta）。<strong>Delta 越小，文风越像。</strong>这就是计量文体学判定《伟大的小说 X》作者归属的经典方法。</p>
+
+          <div class="lab">
+            <div class="lab-title">🧪 在线实验室 · 三位虚构作者 + 一段待判定文本</div>
+            <div class="lab-grid" id="deltaInputs">
+              <label class="lab-label">作者「文生」（拟古风）· 样本 1<textarea data-author="文生">夫为学之道，贵在恒。人之为学，如逆水行舟，不进则退。故君子之于学也，日夜孜孜，不亦宜乎。</textarea></label>
+              <label class="lab-label">作者「文生」· 样本 2<textarea data-author="文生">文者，载道之器也。世人多骛于辞藻，而忽于义理，是舍本而逐末也。故吾尝论之曰：道胜则文自至，何必他求哉。</textarea></label>
+              <label class="lab-label">作者「林小满」（白话风）· 样本 1<textarea data-author="林小满">我真的特别喜欢这家小店，老板人也超好，每次去都会送我们一点小点心，真的很感动。</textarea></label>
+              <label class="lab-label">作者「林小满」· 样本 2<textarea data-author="林小满">说实话，那个电影我看了三遍，每次都觉得特别有意思，真的是那种越看越有味道的片子，强烈推荐。</textarea></label>
+              <label class="lab-label">作者「周砚秋」（学术风）· 样本 1<textarea data-author="周砚秋">然而，这一假设存在明显局限。换言之，若语料规模不足，则统计结果的可靠性将显著下降。因此，本文进一步扩大了样本范围。</textarea></label>
+              <label class="lab-label">作者「周砚秋」· 样本 2<textarea data-author="周砚秋">值得注意的是，两种方法的结论并不一致。然而，二者的统计差异可能源于语料规模。因此，我们重新审视了这一理论框架。</textarea></label>
+            </div>
+            <label class="lab-label">❓ 待判定文本（猜猜它最像谁？）<textarea id="deltaUnknown">综上所述，语言接触现象值得进一步考察。换言之，若历史文献不足，其结论的可靠性便难以保证。然而，我们通过扩大样本范围并重新进行统计，增强了结论的稳健性。</textarea></label>
+            <div class="lab-actions">
+              <button class="btn primary" id="deltaRun" type="button">判定文风</button>
+              <button class="btn ghost" id="deltaReset" type="button">恢复示例语料</button>
+            </div>
+            <div class="result" id="deltaOut" aria-live="polite"></div>
+          </div>
+
+          <div class="code-block"><div class="code-head"><span class="code-title">burrows_delta.py · Python 版（纯标准库）</span><button class="mini-btn copy-btn" type="button">复制</button><button class="mini-btn dl-btn" type="button" data-fname="burrows_delta.py">下载 .py</button></div>
+<pre><code>import statistics
+from collections import Counter
+
+def chars(text):                      # 只留汉字，丢掉标点
+    return [c for c in text if "\u4e00" <= c <= "\u9fff"]
+
+corpus = {                            # 每位作者至少 2 段样本
+    "作者A": ["……样本1……", "……样本2……"],
+    "作者B": ["……样本1……", "……样本2……"],
+}
+unknown = "……待判定文本……"
+top_n = 30                            # 取最高频的前 30 个字
+
+# 1. 每个文本统计"字频比例"
+freqs = {}
+for samples in corpus.values():
+    for t in samples:
+        cs = chars(t); n = len(cs) or 1
+        freqs[t] = Counter({c: v / n for c, v in Counter(cs).items()})
+cs = chars(unknown); n = len(cs) or 1
+freqs["待判定"] = Counter({c: v / n for c, v in Counter(cs).items()})
+
+# 2. 取全语料最高频的 top_n 个字
+total = Counter()
+for c in freqs.values():
+    total.update(c)
+top = [w for w, _ in total.most_common(top_n)]
+
+# 3. 对每个字做 z 分数（跨文本标准化）
+z = {}
+for t, f in freqs.items():
+    vals = [f[w] for w in top]
+    mean = statistics.mean(vals)
+    sd = statistics.pstdev(vals) or 1e-9
+    z[t] = {w: (v - mean) / sd for w, v in zip(top, vals)}
+
+# 4. 每位作者取样本平均 z 分数，算 Delta 距离
+for author, samples in corpus.items():
+    profile = {w: statistics.mean(z[t][w] for t in samples) for w in top}
+    delta = statistics.mean(abs(z["待判定"][w] - profile[w]) for w in top)
+    print(f"{author}: Delta = {delta:.3f}")
+
+# Delta 越小，待判定文本与该作者的文风越接近。</code></pre></div>
+
+          <div class="callout c-tip"><strong>延伸挑战：</strong>① 把你研究对象的文本分两组粘进来，判定一段待测文字；② 把高频字数从 30 改成 60（改脚本里的 <code>top_n</code>），结果更稳还是更噪？③ 注意：每个作者至少要 2–3 段<strong>各 300 字以上</strong>的文本，样本太短结果不可信——示例语料只是为了演示机制。</div>
+          <button class="check-btn" type="button" data-pid="proj-2" data-module="projects"><span class="ck"></span>完成此项目</button>
+        </article>
+
+        <!-- 项目三：语料处理 -->
+        <article class="proj">
+          <div class="proj-head">
+            <h3>项目三 · 语料处理实验台</h3>
+            <div><span class="chip">难度 ★☆☆</span><span class="chip">约 30 分钟</span></div>
+          </div>
+          <p class="proj-use">用到的概念：<a href="#/nlp">Token</a>、类符 / 形符比（TTR）、Zipf 定律</p>
+          <p><strong>原理白话版：</strong>这是语料库语言学最基础的一套操作——把文本切成 token，然后统计：总共多少字、多少类符（不同的词）、类符/形符比（词汇丰富度）、平均句长、最高频的词是哪些。把它们粘进论文的"语料描述"部分，就是最标准的做法。</p>
+
+          <div class="lab">
+            <div class="lab-title">🧪 在线实验室 · 粘贴你自己的语料</div>
+            <label class="lab-label">语料文本<textarea id="corpusText">语言的边界就是思想的边界。我们用语言描述世界，也在语言中理解世界。当计算机开始阅读文本，语言便不再只是人与人之间的桥梁，它也成了人与机器之间的纽带。词频统计是最朴素的分析方法：数一数哪些词出现得多，哪些词从不出现。可正是这些朴素的方法，支撑起了一门叫做计算人文学的学问。</textarea></label>
+            <div class="lab-actions">
+              <label class="mode-label">切分方式
+                <select id="statsMode">
+                  <option value="char">字符（单字）</option>
+                  <option value="bigram">二元组（近似分词）</option>
+                </select>
+              </label>
+              <button class="btn primary" id="statsRun" type="button">分析语料</button>
+            </div>
+            <div class="result" id="statsOut" aria-live="polite"></div>
+          </div>
+
+          <div class="code-block"><div class="code-head"><span class="code-title">corpus_stats.py · Python 版（jieba 真分词）</span><button class="mini-btn copy-btn" type="button">复制</button><button class="mini-btn dl-btn" type="button" data-fname="corpus_stats.py">下载 .py</button></div>
+<pre><code>import re
+import jieba
+from collections import Counter
+
+with open("corpus.txt", encoding="utf-8") as f:
+    text = f.read()
+
+# jieba 是最常用的中文分词库: pip install jieba
+words = [w for w in jieba.lcut(text) if re.search(r"[\u4e00-\u9fff]", w)]
+counter = Counter(words)
+
+print("总字数(含标点):", len(text))
+print("总词数:", len(words))
+print("类符数:", len(counter))
+print("TTR 类符/形符比:", round(len(counter) / len(words), 3))
+print("\n前 20 个高频词:")
+for w, n in counter.most_common(20):
+    print(f"{w}\t{n}")</code></pre></div>
+
+          <div class="callout c-tip"><strong>延伸挑战：</strong>① 粘贴你自己最长的一篇语料（几千字），看看高频词表；② 切换"字符 / 二元组"两种模式，对比 TTR 变化；③ 高频词从第 2 名往后逐名递减得很快吗？——恭喜，你亲眼见到了 Zipf 定律；④ 长文本请用下方 Python 脚本，网速和浏览器内存都更友好。</div>
+          <button class="check-btn" type="button" data-pid="proj-3" data-module="projects"><span class="ck"></span>完成此项目</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= 资源知识库 ================= -->
+    <section class="page" id="page-kb">
+      <div class="container">
+        <header class="page-head">
+          <span class="crumb">模块 06 · 素材库</span>
+          <h2>资源知识库</h2>
+          <p class="lede">系统梳理 GitHub 上的优质开源学习资源：<strong>31 个精选项目</strong>按技术方向分为七类，每条都含简介、推荐理由与实时可查的仓库链接。<strong>全部条目均经 GitHub API 逐一核验</strong>（星标 / 最近推送），优先收录持续维护、面向国际社区的项目。</p>
+          <div class="head-meta">
+            <span class="chip" id="kbUpdated"></span>
+            <span class="chip">点击卡片右上角链接直达仓库 ↗</span>
+          </div>
+        </header>
+
+        <div class="filter-bar">
+          <input type="search" id="kbSearch" placeholder="🔍 搜索：关键词、标签或仓库名…" aria-label="搜索知识库">
+          <div class="filter-chips" id="kbChips" role="tablist" aria-label="按分类筛选"></div>
+        </div>
+
+        <div id="kbList" aria-live="polite"></div>
+
+        <div class="callout c-info">
+          <strong>🧭 怎么用这个知识库？</strong>
+          应用向读者按 <a href="#/roadmap">路线图</a> 顺序看「Python 与数据处理」和「中文 NLP 专项」即可起步；想进阶再去「大模型与前沿应用」；「计算人文 · 文体计量」是你写论文时的武器库。星标数为 2026-09-06 核验值，仅供判断体量与热度，<em>入选标准始终是「对你的研究有用」</em>。
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 前沿动态 ================= -->
+    <section class="page" id="page-frontier">
+      <div class="container">
+        <header class="page-head">
+          <span class="crumb">模块 07 · 雷达</span>
+          <h2>前沿动态</h2>
+          <p class="lede">这个模块帮你回答两个问题：<strong>「最近有什么值得学的新东西？」</strong>和<strong>「整个领域正在往哪走？」</strong>——近期动态经 GitHub API 核验，活跃度看板实时刷新，趋势观察按季度复核。</p>
+          <div class="head-meta">
+            <span class="chip" id="frontierUpdated"></span>
+            <span class="live-badge" id="liveBadge" hidden>⚡ 活跃度实时获取中…</span>
+          </div>
+        </header>
+
+        <div id="frontierContent"></div>
+
+        <div class="callout c-tip">
+          <strong>🔧 维护者更新指南（本模块的可持续更新机制）</strong>
+          <ol>
+            <li><strong>近期动态</strong>：每月运行一次 README 中的一键核验脚本，把新观察到的活跃项目按日期追加到 <code>assets/data/frontier.js</code> 的 picks 最前面；</li>
+            <li><strong>趋势观察</strong>：每季度复核一次 trends 条目并更新「截至」表述；</li>
+            <li><strong>活跃度看板</strong>：全自动——页面加载时经 GitHub API 实时刷新（12 小时缓存），离线或限流时自动回落到内置数据，无需任何维护；</li>
+            <li><strong>知识库星标</strong>：星标仅为参考，入选标准始终是内容质量，不必频繁追更。</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 书单与资源 ================= -->
+    <section class="page" id="page-resources">
+      <div class="container">
+        <header class="page-head">
+          <span class="crumb">模块 06 · 补给</span>
+          <h2>书单与资源清单</h2>
+          <p class="lede">为语言学研究者定制的<strong>极简</strong>清单。原则：每一项都问一句"真的用得上吗？"——用不上的，再经典也不推荐。跟完应用向路线，你只需要下面这些。</p>
+        </header>
+
+        <div class="res-cat">
+          <h3>📐 数学（视频优先，看完就跑）</h3>
+          <div class="res-list">
+            <div class="res-item">
+              <div class="res-name">3Blue1Brown《线性代数的本质》<span class="pill">视频</span><span class="pill">免费</span></div>
+              <p>用动画讲透"矩阵是空间的变换"，看完你对向量和矩阵的直觉超过很多工科生。<a href="https://search.bilibili.com/all?keyword=3Blue1Brown%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E6%9C%AC%E8%B4%A8" target="_blank" rel="noopener">B 站搜索 ↗</a></p>
+            </div>
+            <div class="res-item">
+              <div class="res-name">3Blue1Brown《微积分的本质》<span class="pill">视频</span><span class="pill">免费</span></div>
+              <p>只为看懂"导数 = 变化率"一集也值得；配合本站数学板块的高数部分食用。</p>
+            </div>
+            <div class="res-item">
+              <div class="res-name">可汗学院 · 统计与概率<span class="pill">课程</span><span class="pill">免费</span></div>
+              <p>假设检验、p 值、卡方检验讲得最耐心，有中文版，配练习题。<a href="https://zh.khanacademy.org/math/statistics-probability" target="_blank" rel="noopener">前往 ↗</a></p>
+            </div>
+            <div class="res-item">
+              <div class="res-name">《女士品茶》 David Salsburg<span class="pill">科普书</span></div>
+              <p>统计学是怎么改变科学的——当故事读，读完你对 p 值不再恐惧。适合睡前。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="res-cat">
+          <h3>🐍 Python（一本主书 + 两个环境）</h3>
+          <div class="res-list">
+            <div class="res-item">
+              <div class="res-name">《Python 编程：从入门到实践》 Eric Matthes<span class="pill">入门书</span></div>
+              <p>对零基础最友好的入门书，前半本就够用；不必做完所有习题，够用即走。</p>
+            </div>
+            <div class="res-item">
+              <div class="res-name">廖雪峰 Python 教程<span class="pill">免费在线</span></div>
+              <p>当字典查：忘了语法就来搜一下，五分钟解决。<a href="https://www.liaoxuefeng.com/wiki/1016959663602400" target="_blank" rel="noopener">前往 ↗</a></p>
+            </div>
+            <div class="res-item">
+              <div class="res-name">Google Colab<span class="pill">工具</span><span class="pill">免费</span></div>
+              <p>免安装的练手环境，本站 Python 板块所有代码都能直接粘贴运行。<a href="https://colab.research.google.com" target="_blank" rel="noopener">前往 ↗</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="res-cat">
+          <h3>💬 NLP（一门圣经课 + 一个图解站）</h3>
+          <div class="res-list">
+            <div class="res-item">
+              <div class="res-name">《Speech and Language Processing》 Jurafsky &amp; Martin<span class="pill">教材</span><span class="pill">免费在线</span></div>
+              <p>NLP 领域圣经，第 3 版草稿官网免费。只读方法概述章节，读得懂"方法部分"就算胜利。<a href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="noopener">前往 ↗</a></p>
+            </div>
+            <div class="res-item">
+              <div class="res-name">Stanford CS224N<span class="pill">公开课</span><span class="pill">免费</span></div>
+              <p>NLP 最著名的公开课，走研发向必刷；应用向可以只看前几讲建立全局观。<a href="https://web.stanford.edu/class/cs224n/" target="_blank" rel="noopener">前往 ↗</a></p>
+            </div>
+            <div class="res-item">
+              <div class="res-name">The Illustrated Transformer · Jay Alammar<span class="pill">图解</span><span class="pill">免费</span></div>
+              <p>全世界最好懂的 Transformer 图解，配合本站概念板块第 5 节。<a href="https://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">前往 ↗</a></p>
+            </div>
+            <div class="res-item">
+              <div class="res-name">Hugging Face LLM Course<span class="pill">课程</span><span class="pill">免费</span></div>
+              <p>跟上大模型时代的免费课程，讲怎么"用"预训练模型，应用向友好。<a href="https://huggingface.co/learn/llm-course/chapter1/1" target="_blank" rel="noopener">前往 ↗</a></p>
+            </div>
+            <div class="res-item">
+              <div class="res-name">NLTK Book<span class="pill">免费在线</span></div>
+              <p>最经典的"给语言学家的 NLP 书"，每一章都从语言问题出发。<a href="https://www.nltk.org/book/" target="_blank" rel="noopener">前往 ↗</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="res-cat">
+          <h3>🔬 计算人文与语言学（你的主场）</h3>
+          <div class="res-list">
+            <div class="res-item">
+              <div class="res-name">The Programming Historian<span class="pill">教程集</span><span class="pill">免费</span></div>
+              <p>人文学者写给人文同行的编程课，每篇都是一个小型研究项目，英文但平易近人。<a href="https://programminghistorian.org" target="_blank" rel="noopener">前往 ↗</a></p>
+            </div>
+            <div class="res-item">
+              <div class="res-name">《Macroanalysis》 Matthew Jockers<span class="pill">专著</span></div>
+              <p>"宏观分析"的奠基之作：把几百部小说当数据集来研究文学史。Burrows-Delta 的思想源头之一。</p>
+            </div>
+            <div class="res-item">
+              <div class="res-name">spaCy 官方课程 / stanza 文档<span class="pill">工具</span><span class="pill">免费</span></div>
+              <p>英文文本用 spaCy，中文文本用 stanza，两份官方教程就是你最好的老师。<a href="https://course.spacy.io/en" target="_blank" rel="noopener">spaCy ↗</a> · <a href="https://stanfordnlp.github.io/stanza/" target="_blank" rel="noopener">stanza ↗</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout c-info">
+          <strong>🤖 第 15 项资源：AI 助教</strong>
+          遇到看不懂的报错、读不下去的论文段落，直接问 ChatGPT / Claude，并附一句"请解释给文科背景的读者听"。这是当代自学者最大的外挂——但记得按 NLP 概念板块的"幻觉守则"核查它说的话。
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p><span class="brand-mark">🗺️</span> <strong>文科生学 NLP</strong> · 从零基础到 NLP 应用精通的个人学习地图</p>
+      <p class="muted small">学习进度只保存在此浏览器的 localStorage 中，不会上传到任何服务器。想把本站放到网上？它没有任何依赖，GitHub Pages 或任意静态托管即可。</p>
+      <button class="mini-btn" id="resetProgress" type="button">重置全部学习进度</button>
+    </div>
+  </footer>
+
+  <script src="assets/data/knowledge.js"></script>
+  <script src="assets/data/frontier.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
