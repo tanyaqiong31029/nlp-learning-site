@@ -4,7 +4,7 @@
    更新方法：核验后修改 stars/pushed，并同步更新 updated 字段。
    ============================================================ */
 window.KB = {
-  updated: "2026-09-06",
+  updated: "2026-09-07",
   categories: [
     {
       id: "llm",
@@ -15,7 +15,7 @@ window.KB = {
         {
           name: "LLM Course",
           repo: "mlabonne/llm-course",
-          stars: 82320, pushed: "2026-02",
+          stars: 82354, pushed: "2026-02",
           desc: "从 LLM 基础到微调、部署的三张完整路线图，配 Colab 实操笔记。",
           why: "全网最系统的 LLM 自学路线（LLM Fundamentals → Scientist → Engineer），每一步都有可运行的 notebook，学完本站应用向路线后顺着他走即可。",
           tags: ["免费", "路线图", "英文", "进阶"],
@@ -23,7 +23,7 @@ window.KB = {
         {
           name: "Generative AI for Beginners",
           repo: "microsoft/generative-ai-for-beginners",
-          stars: 119222, pushed: "2026-09",
+          stars: 119315, pushed: "2026-09",
           desc: "微软官方 21 课生成式 AI 入门，从原理讲到应用与伦理。",
           why: "大厂官方出品、持续迭代、配有中文翻译；一课一练的结构对零基础极其友好，适合当「大模型通识课」。",
           tags: ["免费", "中文友好", "系统课程", "零基础友好"],
@@ -31,7 +31,7 @@ window.KB = {
         {
           name: "LLM Cookbook（吴恩达课程中文版）",
           repo: "datawhalechina/llm-cookbook",
-          stars: 24638, pushed: "2025-06",
+          stars: 24643, pushed: "2025-06",
           desc: "吴恩达《面向开发者的 LLM 入门》系列课程的中文社区版。",
           why: "Datawhale 组织翻译维护，把提示工程、RAG、微调等吴恩达名课全部中文化，是中文学习者打 LLM 应用底子的首选。",
           tags: ["免费", "中文", "视频课配套"],
@@ -39,7 +39,7 @@ window.KB = {
         {
           name: "Prompt Engineering Guide",
           repo: "dair-ai/Prompt-Engineering-Guide",
-          stars: 78042, pushed: "2026-03",
+          stars: 78073, pushed: "2026-03",
           desc: "提示工程指南、论文、课程与 notebook 的最全汇编。",
           why: "把大模型「用得好」正是文科研究者的主战场——这份指南把零散技巧整理成了可查的体系，写研究方案的 AI 部分可以直接引用其框架。",
           tags: ["免费", "参考大全", "活跃"],
@@ -47,7 +47,7 @@ window.KB = {
         {
           name: "OpenAI Cookbook",
           repo: "openai/openai-cookbook",
-          stars: 75772, pushed: "2026-09",
+          stars: 75814, pushed: "2026-09",
           desc: "OpenAI 官方的 API 使用示例与实操指南合集。",
           why: "学「怎么把大模型 API 嵌进研究流程」的官方参考：批量文本标注、结构化输出、嵌入检索等任务都有现成配方。",
           tags: ["免费", "官方文档", "实操"],
@@ -55,7 +55,7 @@ window.KB = {
         {
           name: "LLMs from Scratch",
           repo: "rasbt/LLMs-from-scratch",
-          stars: 104405, pushed: "2026-09",
+          stars: 104500, pushed: "2026-09",
           desc: "用 PyTorch 一步步从零实现一个类 ChatGPT 模型。",
           why: "想真正搞懂 GPT 内部机制（研发向）时的首选代码教材：每一章都是可运行的增量实现，配套作者 Sebastian Raschka 的视频讲解。",
           tags: ["免费", "代码教材", "研发向", "活跃"],
@@ -71,7 +71,7 @@ window.KB = {
         {
           name: "Transformers",
           repo: "huggingface/transformers",
-          stars: 164844, pushed: "2026-09",
+          stars: 164929, pushed: "2026-09",
           desc: "Hugging Face 旗舰库：数千个预训练模型的一站式下载与使用入口。",
           why: "当今 NLP 生态的事实标准：一行代码加载 BERT/GPT 等预训练模型，本站 NLP 概念板块讲的词向量、Transformer 都能在它身上直接体验。",
           tags: ["免费", "库", "生态核心", "活跃"],
@@ -79,7 +79,7 @@ window.KB = {
         {
           name: "Awesome NLP",
           repo: "keon/awesome-nlp",
-          stars: 18965, pushed: "2026-08",
+          stars: 18969, pushed: "2026-08",
           desc: "NLP 课程、论文、数据集、工具的策划式总清单。",
           why: "找任何 NLP 学习材料都该先来这里搜一遍：40+ 种语言的资源分栏，本站知识库没覆盖到的冷门需求基本都能在这找到。",
           tags: ["免费", "资源索引", "英文"],
@@ -87,7 +87,7 @@ window.KB = {
         {
           name: "NLTK",
           repo: "nltk/nltk",
-          stars: 14707, pushed: "2026-09",
+          stars: 14709, pushed: "2026-09",
           desc: "最经典的「为语言学家写的」NLP Python 库。",
           why: "API 设计处处照顾语言学直觉（词、句、树、语料），配合免费的 NLTK Book，是理解 NLP 基本概念的最佳练手场。",
           tags: ["免费", "库", "语言学友好"],
@@ -95,7 +95,7 @@ window.KB = {
         {
           name: "spaCy",
           repo: "explosion/spaCy",
-          stars: 33874, pushed: "2026-08",
+          stars: 33879, pushed: "2026-08",
           desc: "工业级自然语言处理库，速度与精度兼备。",
           why: "英文文本处理的事实标准，本站 Python 板块的示例就在用它；文档与免费互动课程（course.spacy.io）质量极高。",
           tags: ["免费", "库", "工程级"],
@@ -103,7 +103,7 @@ window.KB = {
         {
           name: "Stanza",
           repo: "stanfordnlp/stanza",
-          stars: 7872, pushed: "2026-09",
+          stars: 7873, pushed: "2026-09",
           desc: "斯坦福官方多语言 NLP 工具包，支持 70+ 种语言。",
           why: "中文分词、词性、依存句法、NER 的神经管线开箱即用，精度与论文背书兼备——本站 Python 板块同款工具。",
           tags: ["免费", "库", "中文支持"],
@@ -111,7 +111,7 @@ window.KB = {
         {
           name: "gensim",
           repo: "piskvorky/gensim",
-          stars: 16479, pushed: "2025-11",
+          stars: 16480, pushed: "2025-11",
           desc: "主题建模与词向量的经典 Python 实现。",
           why: "Word2Vec、LSA（SVD 主题分析）都在这里落地——数学板块学的 SVD 与 NLP 板块学的词向量，用它跑一遍就贯通了。",
           tags: ["免费", "库", "呼应课程概念"],
@@ -127,7 +127,7 @@ window.KB = {
         {
           name: "Python - 100天从新手到大师",
           repo: "jackfrued/Python-100-Days",
-          stars: 185985, pushed: "2026-07",
+          stars: 186067, pushed: "2026-07",
           desc: "中文圈最流行的闯关式 Python 教程，图文并茂、配套代码。",
           why: "前 30 天恰好覆盖本站 Python 板块要求的「够用五件套 + 文件处理」，节奏感强，适合每天打卡式学习。",
           tags: ["免费", "中文", "零基础友好", "体系化"],
@@ -135,7 +135,7 @@ window.KB = {
         {
           name: "Awesome Python",
           repo: "vinta/awesome-python",
-          stars: 318572, pushed: "2026-09",
+          stars: 318934, pushed: "2026-09",
           desc: "「我想用 Python 做 X，该用哪个库」的权威答案库。",
           why: "按用途分类的库索引（文本处理、数据、爬虫……），当你需要新工具时先来这里查，避免在搜索引擎里踩坑。",
           tags: ["免费", "资源索引", "常备手册"],
@@ -143,7 +143,7 @@ window.KB = {
         {
           name: "Project-based Learning",
           repo: "practical-tutorials/project-based-learning",
-          stars: 282238, pushed: "2026-08",
+          stars: 282394, pushed: "2026-09",
           desc: "按项目组织的编程教程汇编，覆盖 Python 等多种语言。",
           why: "语法过关后最好的下一步：挑一个贴近自己研究的小项目照着做完，比再读十本书都有用。",
           tags: ["免费", "项目式学习"],
@@ -151,7 +151,7 @@ window.KB = {
         {
           name: "learn-python",
           repo: "trekhleb/learn-python",
-          stars: 18261, pushed: "2026-04",
+          stars: 18269, pushed: "2026-04",
           desc: "可运行的 Python 语法 playground 与速查表。",
           why: "每个语法点都是一个能直接跑的脚本并带测试——完美契合本站「能运行、能修改现成脚本」的够用哲学，适合当字典。",
           tags: ["免费", "速查表", "可运行"],
@@ -167,7 +167,7 @@ window.KB = {
         {
           name: "《动手学深度学习》中文版",
           repo: "d2l-ai/d2l-zh",
-          stars: 80318, pushed: "2024-07",
+          stars: 80359, pushed: "2024-07",
           desc: "面向中文读者的深度学习教材，公式、代码、讨论三合一。",
           why: "被 70 多个国家的 500 多所大学采用；每一节都能在 Colab 里边跑边学，是中文世界最好的 DL 入门书之一。",
           tags: ["免费", "中文", "教材", "研发向"],
@@ -175,7 +175,7 @@ window.KB = {
         {
           name: "fastbook（fastai）",
           repo: "fastai/fastbook",
-          stars: 25264, pushed: "2024-08",
+          stars: 25269, pushed: "2024-08",
           desc: "fastai 官方教材的 Jupyter Notebook 版，自顶向下教深度学习。",
           why: "教学理念独特：先跑通世界级模型再回头拆原理——对非科班学习者的正反馈极强，免费开源可在线阅读。",
           tags: ["免费", "Notebook", "非科班友好"],
@@ -183,7 +183,7 @@ window.KB = {
         {
           name: "Neural Networks: Zero to Hero",
           repo: "karpathy/nn-zero-to-hero",
-          stars: 24264, pushed: "2024-08",
+          stars: 24282, pushed: "2024-08",
           desc: "OpenAI 创始成员 Andrej Karpathy 的手写神经网络视频课及代码。",
           why: "从自动微分一路手写到 GPT，讲解深入浅出；想建立真正的直觉而不只是调包，看这套课。",
           tags: ["免费", "视频课", "研发向"],
@@ -191,7 +191,7 @@ window.KB = {
         {
           name: "nanoGPT",
           repo: "karpathy/nanoGPT",
-          stars: 62836, pushed: "2025-11",
+          stars: 62869, pushed: "2025-11",
           desc: "最简洁的 GPT 训练 / 微调参考实现（约 300 行核心代码）。",
           why: "把 NLP 概念板块讲的 Transformer 变成能逐行读懂的代码——「教学级最小实现」的天花板，研发向面试前值得精读。",
           tags: ["免费", "代码教材", "Transformer"],
@@ -255,7 +255,7 @@ window.KB = {
         {
           name: "jieba 结巴中文分词",
           repo: "fxsjy/jieba",
-          stars: 35140, pushed: "2024-08",
+          stars: 35145, pushed: "2024-08",
           desc: "中文分词的事实标准库，一行代码搞定分词。",
           why: "本站项目三的 Python 脚本用的就是它；支持自定义词典（配合 THUOCL 词表更好用），中文语料处理第一站。",
           tags: ["免费", "中文", "库", "本站在用"],
@@ -271,7 +271,7 @@ window.KB = {
         {
           name: "funNLP 中文资源百宝箱",
           repo: "fighting41love/funNLP",
-          stars: 82903, pushed: "2024-05",
+          stars: 82928, pushed: "2024-05",
           desc: "中文 NLP 词典、词库与工具的最全汇编。",
           why: "人名库、停用词表、领域词表、文本工具……做中文语料预处理时像逛超市，总能挖到需要的资源。",
           tags: ["免费", "中文", "资源索引"],
@@ -287,7 +287,7 @@ window.KB = {
         {
           name: "chinese-poetry 中华古诗词数据库",
           repo: "chinese-poetry/chinese-poetry",
-          stars: 53361, pushed: "2026-06",
+          stars: 53367, pushed: "2026-06",
           desc: "最全的中华古诗词结构化数据库（JSON 格式）。",
           why: "唐宋近 1.4 万诗人、全唐诗宋词随手可得——把本站文体计量实验换上「唐诗 vs 宋词」的真实语料，立刻就是一篇课程论文的素材。",
           tags: ["免费", "中文语料", "结构化", "本站实验适配"],
@@ -311,7 +311,7 @@ window.KB = {
         {
           name: "Awesome Public Datasets",
           repo: "awesomedata/awesome-public-datasets",
-          stars: 78822, pushed: "2026-09",
+          stars: 78835, pushed: "2026-09",
           desc: "按 25+ 学科整理的高质量公开数据集总表。",
           why: "找研究数据的第一站：语言学之外，社会学、历史学、传播学的数据集也都有分栏。",
           tags: ["免费", "数据集", "跨学科"],

@@ -9,21 +9,39 @@
       （12 小时缓存，离线/限流时回落到 fallback 数据，fallback 由脚本每日更新）。
    ============================================================ */
 window.FRONTIER = {
-  updated: "2026-09-06",
+  updated: "2026-09-07",
 
   // ---- 近期动态（最新在前）----
   picks: [
     {
-      date: "2026-09-06",
+      date: "2026-09-07",
       repo: "huggingface/transformers",
       label: "自动核验",
-      text: "Hugging Face 旗舰库：数千个预训练模型的一站式下载与使用入口。GitHub API 每日核验：最近推送 2026-09-06，当前星标 164.8k。",
+      text: "Hugging Face 旗舰库：数千个预训练模型的一站式下载与使用入口。GitHub API 每日核验：最近推送 2026-09-07，当前星标 164.9k。",
+    },
+    {
+      date: "2026-09-07",
+      repo: "practical-tutorials/project-based-learning",
+      label: "自动核验",
+      text: "按项目组织的编程教程汇编，覆盖 Python 等多种语言。GitHub API 每日核验：最近推送 2026-09-07，当前星标 282.4k。",
+    },
+    {
+      date: "2026-09-07",
+      repo: "dh-tech/awesome-digital-humanities",
+      label: "自动核验",
+      text: "数字人文领域的工具、资源与服务总清单。GitHub API 每日核验：最近推送 2026-09-07，当前星标 411。",
+    },
+    {
+      date: "2026-09-06",
+      repo: "nltk/nltk",
+      label: "自动核验",
+      text: "最经典的「为语言学家写的」NLP Python 库。GitHub API 每日核验：最近推送 2026-09-06，当前星标 14.7k。",
     },
     {
       date: "2026-09-05",
       repo: "microsoft/generative-ai-for-beginners",
       label: "自动核验",
-      text: "微软官方 21 课生成式 AI 入门，从原理讲到应用与伦理。GitHub API 每日核验：最近推送 2026-09-05，当前星标 119.2k。",
+      text: "微软官方 21 课生成式 AI 入门，从原理讲到应用与伦理。GitHub API 每日核验：最近推送 2026-09-05，当前星标 119.3k。",
     },
     {
       date: "2026-09-05",
@@ -45,21 +63,9 @@ window.FRONTIER = {
     },
     {
       date: "2026-09-04",
-      repo: "nltk/nltk",
-      label: "自动核验",
-      text: "最经典的「为语言学家写的」NLP Python 库。GitHub API 每日核验：最近推送 2026-09-04，当前星标 14.7k。",
-    },
-    {
-      date: "2026-09-04",
       repo: "programminghistorian/jekyll",
       label: "自动核验",
       text: "人文学者写给同行的编程教程集（本仓库为站点源码）。GitHub API 每日核验：最近推送 2026-09-04，当前星标 548。",
-    },
-    {
-      date: "2026-09-03",
-      repo: "dh-tech/awesome-digital-humanities",
-      label: "自动核验",
-      text: "数字人文领域的工具、资源与服务总清单。GitHub API 每日核验：最近推送 2026-09-03，当前星标 411。",
     },
     {
       date: "2026-09-03",
@@ -71,19 +77,13 @@ window.FRONTIER = {
       date: "2026-09-01",
       repo: "rasbt/LLMs-from-scratch",
       label: "自动核验",
-      text: "用 PyTorch 一步步从零实现一个类 ChatGPT 模型。GitHub API 每日核验：最近推送 2026-09-01，当前星标 104.4k。",
+      text: "用 PyTorch 一步步从零实现一个类 ChatGPT 模型。GitHub API 每日核验：最近推送 2026-09-01，当前星标 104.5k。",
     },
     {
       date: "2026-09-01",
       repo: "vinta/awesome-python",
       label: "自动核验",
-      text: "「我想用 Python 做 X，该用哪个库」的权威答案库。GitHub API 每日核验：最近推送 2026-09-01，当前星标 318.6k。",
-    },
-    {
-      date: "2026-08-31",
-      repo: "practical-tutorials/project-based-learning",
-      label: "自动核验",
-      text: "按项目组织的编程教程汇编，覆盖 Python 等多种语言。GitHub API 每日核验：最近推送 2026-08-31，当前星标 282.2k。",
+      text: "「我想用 Python 做 X，该用哪个库」的权威答案库。GitHub API 每日核验：最近推送 2026-09-01，当前星标 318.9k。",
     },
   ],
 
@@ -128,14 +128,14 @@ window.FRONTIER = {
   // ---- 实时活跃度看板（自动刷新，无需手工维护）----
   live: {
     repos: [
-      { repo: "huggingface/transformers", name: "Transformers", fallback: { stars: 164844, pushed: "2026-09-06" } },
-      { repo: "microsoft/generative-ai-for-beginners", name: "GenAI for Beginners", fallback: { stars: 119222, pushed: "2026-09-05" } },
-      { repo: "rasbt/LLMs-from-scratch", name: "LLMs from Scratch", fallback: { stars: 104405, pushed: "2026-09-01" } },
-      { repo: "mlabonne/llm-course", name: "LLM Course", fallback: { stars: 82320, pushed: "2026-02-05" } },
-      { repo: "d2l-ai/d2l-zh", name: "动手学深度学习", fallback: { stars: 80318, pushed: "2024-07-30" } },
-      { repo: "chinese-poetry/chinese-poetry", name: "chinese-poetry", fallback: { stars: 53361, pushed: "2026-06-17" } },
+      { repo: "huggingface/transformers", name: "Transformers", fallback: { stars: 164929, pushed: "2026-09-07" } },
+      { repo: "microsoft/generative-ai-for-beginners", name: "GenAI for Beginners", fallback: { stars: 119315, pushed: "2026-09-05" } },
+      { repo: "rasbt/LLMs-from-scratch", name: "LLMs from Scratch", fallback: { stars: 104500, pushed: "2026-09-01" } },
+      { repo: "mlabonne/llm-course", name: "LLM Course", fallback: { stars: 82354, pushed: "2026-02-05" } },
+      { repo: "d2l-ai/d2l-zh", name: "动手学深度学习", fallback: { stars: 80359, pushed: "2024-07-30" } },
+      { repo: "chinese-poetry/chinese-poetry", name: "chinese-poetry", fallback: { stars: 53367, pushed: "2026-06-17" } },
       { repo: "hankcs/HanLP", name: "HanLP", fallback: { stars: 36486, pushed: "2025-11-15" } },
-      { repo: "explosion/spaCy", name: "spaCy", fallback: { stars: 33874, pushed: "2026-08-24" } },
+      { repo: "explosion/spaCy", name: "spaCy", fallback: { stars: 33879, pushed: "2026-08-24" } },
     ],
   },
 
