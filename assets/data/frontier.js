@@ -35,19 +35,19 @@ window.FRONTIER = {
       date: "2026-09-25",
       repo: "vinta/awesome-python",
       label: "自动核验",
-      text: "「我想用 Python 做 X，该用哪个库」的权威答案库。GitHub API 每日核验：最近推送 2026-09-25，当前星标 323.1k。",
+      text: "「我想用 Python 做 X，该用哪个库」的权威答案库。GitHub API 每日核验：最近推送 2026-09-25，当前星标 323.2k。",
+    },
+    {
+      date: "2026-09-25",
+      repo: "pytorch/tutorials",
+      label: "自动核验",
+      text: "PyTorch 官方教程集：从张量入门到分布式训练、部署的全链路。GitHub API 每日核验：最近推送 2026-09-25，当前星标 9.3k。",
     },
     {
       date: "2026-09-25",
       repo: "programminghistorian/jekyll",
       label: "自动核验",
       text: "人文学者写给同行的编程教程集（本仓库为站点源码）。GitHub API 每日核验：最近推送 2026-09-25，当前星标 552。",
-    },
-    {
-      date: "2026-09-25",
-      repo: "maehr/awesome-digital-history",
-      label: "自动核验",
-      text: "数字史学的史料库与学习方法索引。GitHub API 每日核验：最近推送 2026-09-25，当前星标 353。",
     },
     {
       date: "2026-09-24",
@@ -62,12 +62,6 @@ window.FRONTIER = {
       text: "最经典的「为语言学家写的」NLP Python 库。GitHub API 每日核验：最近推送 2026-09-24，当前星标 14.7k。",
     },
     {
-      date: "2026-09-23",
-      repo: "awesomedata/awesome-public-datasets",
-      label: "自动核验",
-      text: "按 25+ 学科整理的高质量公开数据集总表。GitHub API 每日核验：最近推送 2026-09-23，当前星标 79.2k。",
-    },
-    {
       date: "2026-09-22",
       repo: "rasbt/LLMs-from-scratch",
       label: "自动核验",
@@ -80,10 +74,16 @@ window.FRONTIER = {
       text: "按项目组织的编程教程汇编，覆盖 Python 等多种语言。GitHub API 每日核验：最近推送 2026-09-21，当前星标 284.7k。",
     },
     {
-      date: "2026-09-16",
-      repo: "dariusk/corpora",
+      date: "2026-09-14",
+      repo: "EleutherAI/lm-evaluation-harness",
       label: "自动核验",
-      text: "数百个 JSON 格式的趣味小型语料（食物、地名、词汇分类……）。GitHub API 每日核验：最近推送 2026-09-16，当前星标 5.1k。",
+      text: "开源大模型评测框架：数百个学术基准（MMLU、GSM8K 等）一条命令跑分。GitHub API 每日核验：最近推送 2026-09-14，当前星标 14.1k。",
+    },
+    {
+      date: "2026-09-14",
+      repo: "hiyouga/LlamaFactory",
+      label: "自动核验",
+      text: "一站式大模型微调工具：100+ 模型的 LoRA/全参微调与评估（ACL 2024）。GitHub API 每日核验：最近推送 2026-09-14，当前星标 75k。",
     },
   ],
 
@@ -94,8 +94,8 @@ window.FRONTIER = {
       title: "从 Chatbot 到 Agent：NLP 进入「动手」时代",
       text: "2026 年最大的范式转移：模型不再只是对话，而是调用工具、规划步骤、完成长程任务（Long-Horizon Agents）。对研究者的意义：文献综述助手、批量语料标注、多步翻译流水线都能交给 Agent 编排——提示词写法也从「怎么问」变成「怎么布置任务」。",
       refs: [
-        { label: "TWIML：AI Trends 2026", url: "https://twimlai.com/podcast/twimlai/ai-trends-2026-openclaw-agents-reasoning-llms/" },
-        { label: "LLM Agents 指南", url: "https://www.superannotate.com/blog/llm-agents" },
+        { label: "Anthropic：构建高效 Agent 的实践指南", url: "https://www.anthropic.com/research/building-effective-agents" },
+        { label: "MCP · 模型上下文协议官网", url: "https://modelcontextprotocol.io/" },
       ],
     },
     {
@@ -104,15 +104,16 @@ window.FRONTIER = {
       text: "行业重心从「把模型做大」转向「让模型多想几步」：推理驱动的后训练与推理时（inference-time）技术成为竞争焦点。学术上，思维链正扩展为「智能体推理」（Agentic Reasoning）。读论文时会看到更多「思考预算」相关的表述——本质是让模型花更多算力换取更可靠的推理。",
       refs: [
         { label: "Springer：LLM 在 NLP 中的演进与架构趋势", url: "https://link.springer.com/article/10.1186/s40537-026-01429-1" },
-        { label: "Agentic Reasoning 综述", url: "https://zhuanlan.zhihu.com/p/1998163875988776128" },
+        { label: "Epoch AI · 大模型趋势数据", url: "https://epoch.ai/" },
       ],
     },
     {
       icon: "🛠️",
       title: "工程化与评测体系比模型本身更受重视",
-      text: "当各家旗舰模型能力接近，竞争转向落地：评测基准（evaluation）、可靠性、成本控制成为关键词。对应用向学习者是好消息——「会设计任务、会评估输出质量」正是文科背景最擅长的部分，也是最不容易被工具替代的能力。",
+      text: "当各家旗舰模型能力接近，竞争转向落地：评测基准（evaluation）、可靠性、成本控制成为关键词。真人盲测竞技场（LMArena）与 LLM-as-a-Judge 正在重塑「模型好不好」的判定方式。对应用向学习者是好消息——「会设计任务、会评估输出质量」正是文科背景最擅长的部分：本站概念页的「评测素养」专题与项目五，就是为这个方向准备的入场券。",
       refs: [
-        { label: "2026 NLP 范式转移观察", url: "https://blog.csdn.net/kkiron/article/details/163855267" },
+        { label: "LMArena · 真人盲测竞技场", url: "https://lmarena.ai/" },
+        { label: "Stanford AI Index 年度报告", url: "https://hai.stanford.edu/ai-index" },
       ],
     },
     {
@@ -128,14 +129,15 @@ window.FRONTIER = {
   // ---- 实时活跃度看板（自动刷新，无需手工维护）----
   live: {
     repos: [
-      { repo: "huggingface/transformers", name: "Transformers", fallback: { stars: 166659, pushed: "2026-09-26" } },
-      { repo: "microsoft/generative-ai-for-beginners", name: "GenAI for Beginners", fallback: { stars: 120576, pushed: "2026-09-24" } },
-      { repo: "rasbt/LLMs-from-scratch", name: "LLMs from Scratch", fallback: { stars: 105593, pushed: "2026-09-22" } },
+      { repo: "huggingface/transformers", name: "Transformers", fallback: { stars: 166665, pushed: "2026-09-26" } },
+      { repo: "microsoft/generative-ai-for-beginners", name: "GenAI for Beginners", fallback: { stars: 120588, pushed: "2026-09-24" } },
+      { repo: "rasbt/LLMs-from-scratch", name: "LLMs from Scratch", fallback: { stars: 105602, pushed: "2026-09-22" } },
       { repo: "mlabonne/llm-course", name: "LLM Course", fallback: { stars: 83146, pushed: "2026-02-05" } },
-      { repo: "d2l-ai/d2l-zh", name: "动手学深度学习", fallback: { stars: 81112, pushed: "2024-07-30" } },
-      { repo: "chinese-poetry/chinese-poetry", name: "chinese-poetry", fallback: { stars: 53490, pushed: "2026-06-17" } },
-      { repo: "hankcs/HanLP", name: "HanLP", fallback: { stars: 36507, pushed: "2026-09-15" } },
-      { repo: "explosion/spaCy", name: "spaCy", fallback: { stars: 33922, pushed: "2026-08-24" } },
+      { repo: "d2l-ai/d2l-zh", name: "动手学深度学习", fallback: { stars: 81115, pushed: "2024-07-30" } },
+      { repo: "chinese-poetry/chinese-poetry", name: "chinese-poetry", fallback: { stars: 53361, pushed: "2026-06-17" } },
+      { repo: "hankcs/HanLP", name: "HanLP", fallback: { stars: 36486, pushed: "2025-11-15" } },
+      { repo: "EleutherAI/lm-evaluation-harness", name: "LM Eval Harness", fallback: { stars: 14079, pushed: "2026-09-14" } },
+      { repo: "explosion/spaCy", name: "spaCy", fallback: { stars: 33923, pushed: "2026-08-24" } },
     ],
   },
 

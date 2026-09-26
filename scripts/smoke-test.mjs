@@ -3,7 +3,7 @@
  * 冒烟测试：node scripts/smoke-test.mjs <baseURL>
  * 需先起本地静态服务，如：python3 -m http.server 8000
  * 使用系统 Chrome（channel: "chrome"），无需下载浏览器。
- * 覆盖：路由导航 / 知识库搜索 / 三个在线实验 / 进度持久化 / 页面 JS 错误。
+ * 覆盖：路由导航 / 知识库搜索 / 五个在线实验 / 进度持久化 / 页面 JS 错误。
  */
 import { chromium } from "playwright";
 
@@ -41,12 +41,17 @@ await page.evaluate(() => { location.hash = "#/math"; });
 await page.waitForTimeout(300);
 check("数学知识卡 18 张", await page.locator('#page-math .check-btn[data-module="math"]').count() === 18);
 
+// ---------- NLP 概念 ----------
+await page.evaluate(() => { location.hash = "#/nlp"; });
+await page.waitForTimeout(300);
+check("NLP 概念卡 19 张", await page.locator('#page-nlp .check-btn[data-module="nlp"]').count() === 19);
+
 // ---------- 知识库 ----------
 await page.evaluate(() => { location.hash = "#/kb"; });
 await page.waitForTimeout(300);
 const kbCards = await page.locator(".kb-card").count();
-check("知识库 32 张卡", kbCards === 32, `实际 ${kbCards}`);
-check("分类筛选 8 个", await page.locator(".chip-btn").count() === 8);
+check("知识库 43 张卡", kbCards === 43, `实际 ${kbCards}`);
+check("分类筛选 10 个", await page.locator(".chip-btn").count() === 10);
 await page.evaluate(() => {
   const s = document.querySelector("#kbSearch");
   s.value = "分词";
@@ -66,7 +71,7 @@ check("近期动态 ≥1 条", await page.locator(".pick-card").count() >= 1);
 check("趋势卡 ≥3 张", await page.locator(".trend-card").count() >= 3);
 check("活跃度看板 ≥8 行", await page.locator("#liveBoard tbody tr").count() >= 8);
 
-// ---------- 三个在线实验 ----------
+// ---------- 五个在线实验 ----------
 await page.evaluate(() => { location.hash = "#/projects"; });
 await page.waitForTimeout(400);
 await page.locator("#simRun").click();
@@ -79,6 +84,16 @@ check("文体计量判定为周砚秋", deltaVerdict.includes("周砚秋"), delt
 await page.locator("#statsRun").click();
 await page.waitForTimeout(150);
 check("语料统计 6 个指标", await page.locator("#statsOut .stat-chip").count() === 6);
+await page.locator("#lmRun").click();
+await page.waitForTimeout(150);
+check("bigram 概率榜 ≥1 行", await page.locator("#lmOut .bar-row").count() >= 1);
+await page.locator("#lmGen").click();
+await page.waitForTimeout(150);
+check("bigram 续写有结果", (await page.locator("#lmOut .verdict").textContent()).includes("模型续写"));
+await page.locator("#kappaRun").click();
+await page.waitForTimeout(150);
+check("κ 结果含系数", (await page.locator("#kappaOut .verdict").textContent()).includes("κ"));
+check("κ 交叉表 4 行", await page.locator("#kappaOut tbody tr").count() === 4);
 check("无 JS 页面错误(项目页)", pageErrors.length === 0, pageErrors.join("; "));
 
 // ---------- 进度持久化 ----------

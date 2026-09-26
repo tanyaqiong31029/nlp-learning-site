@@ -15,6 +15,10 @@ function renderKB() {
   if (!window.KB) return;
   const updatedEl = $("#kbUpdated");
   if (updatedEl) updatedEl.textContent = `数据核验于 ${KB.updated} · GitHub API`;
+  const countEl = $("#kbCount");
+  if (countEl) countEl.textContent = KB.categories.reduce((s, c) => s + c.items.length, 0);
+  const verifyEl = $("#kbVerifyDate");
+  if (verifyEl) verifyEl.textContent = KB.updated;
   const chipsEl = $("#kbChips");
   const listEl = $("#kbList");
   if (!chipsEl || !listEl) return;

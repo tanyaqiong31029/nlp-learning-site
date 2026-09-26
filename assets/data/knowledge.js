@@ -1,6 +1,6 @@
 /* ============================================================
    资源知识库数据 · knowledge.js
-   全部条目均于 2026-09-06 经 GitHub API 逐一核验（星标 / 最近推送）。
+   全部条目均于 2026-09-26 经 GitHub API 逐一核验（星标 / 最近推送）。
    更新方法：核验后修改 stars/pushed，并同步更新 updated 字段。
    ============================================================ */
 window.KB = {
@@ -23,7 +23,7 @@ window.KB = {
         {
           name: "Generative AI for Beginners",
           repo: "microsoft/generative-ai-for-beginners",
-          stars: 120576, pushed: "2026-09",
+          stars: 120588, pushed: "2026-09",
           desc: "微软官方 21 课生成式 AI 入门，从原理讲到应用与伦理。",
           why: "大厂官方出品、持续迭代、配有中文翻译；一课一练的结构对零基础极其友好，适合当「大模型通识课」。",
           tags: ["免费", "中文友好", "系统课程", "零基础友好"],
@@ -31,7 +31,7 @@ window.KB = {
         {
           name: "LLM Cookbook（吴恩达课程中文版）",
           repo: "datawhalechina/llm-cookbook",
-          stars: 24757, pushed: "2025-06",
+          stars: 24759, pushed: "2025-06",
           desc: "吴恩达《面向开发者的 LLM 入门》系列课程的中文社区版。",
           why: "Datawhale 组织翻译维护，把提示工程、RAG、微调等吴恩达名课全部中文化，是中文学习者打 LLM 应用底子的首选。",
           tags: ["免费", "中文", "视频课配套"],
@@ -39,7 +39,7 @@ window.KB = {
         {
           name: "Prompt Engineering Guide",
           repo: "dair-ai/Prompt-Engineering-Guide",
-          stars: 78635, pushed: "2026-03",
+          stars: 78641, pushed: "2026-03",
           desc: "提示工程指南、论文、课程与 notebook 的最全汇编。",
           why: "把大模型「用得好」正是文科研究者的主战场——这份指南把零散技巧整理成了可查的体系，写研究方案的 AI 部分可以直接引用其框架。",
           tags: ["免费", "参考大全", "活跃"],
@@ -47,7 +47,7 @@ window.KB = {
         {
           name: "OpenAI Cookbook",
           repo: "openai/openai-cookbook",
-          stars: 76202, pushed: "2026-09",
+          stars: 76206, pushed: "2026-09",
           desc: "OpenAI 官方的 API 使用示例与实操指南合集。",
           why: "学「怎么把大模型 API 嵌进研究流程」的官方参考：批量文本标注、结构化输出、嵌入检索等任务都有现成配方。",
           tags: ["免费", "官方文档", "实操"],
@@ -55,10 +55,42 @@ window.KB = {
         {
           name: "LLMs from Scratch",
           repo: "rasbt/LLMs-from-scratch",
-          stars: 105593, pushed: "2026-09",
+          stars: 105602, pushed: "2026-09",
           desc: "用 PyTorch 一步步从零实现一个类 ChatGPT 模型。",
           why: "想真正搞懂 GPT 内部机制（研发向）时的首选代码教材：每一章都是可运行的增量实现，配套作者 Sebastian Raschka 的视频讲解。",
           tags: ["免费", "代码教材", "研发向", "活跃"],
+        },
+      ],
+    },
+    {
+      id: "eval",
+      icon: "⚖️",
+      name: "LLM 评测",
+      desc: "「它到底好不好」的科学答案：评测框架、精选基准与官方课程，对应本站概念页的评测素养专题。",
+      items: [
+        {
+          name: "LM Evaluation Harness",
+          repo: "EleutherAI/lm-evaluation-harness",
+          stars: 14079, pushed: "2026-09",
+          desc: "开源大模型评测框架：数百个学术基准（MMLU、GSM8K 等）一条命令跑分。",
+          why: "学术界与开源社区跑分的标准工具。不用它做研究也没关系——看一遍它的任务清单，你就知道「评测一个大模型」到底在测什么。",
+          tags: ["免费", "评测框架", "工程级", "活跃"],
+        },
+        {
+          name: "simple-evals",
+          repo: "openai/simple-evals",
+          stars: 4642, pushed: "2026-04",
+          desc: "OpenAI 开源的轻量评测集：MMLU、HumanEval 等精选基准的极简实现。",
+          why: "每个评测只有几十到几百行代码，是读懂「这份考卷到底考什么」的最佳教材——比盯着榜单数字有用得多。",
+          tags: ["免费", "评测", "代码易读"],
+        },
+        {
+          name: "Anthropic Courses",
+          repo: "anthropics/courses",
+          stars: 22859, pushed: "2026-08",
+          desc: "Anthropic 官方课程仓库：提示工程、API 实战、评测与 Agent 开发。",
+          why: "大厂官方出品、持续更新、对非工程背景极友好；提示工程与「评测输出质量」两门课正对应本站的提示工程卡与评测素养专题。",
+          tags: ["免费", "官方课程", "提示工程", "评测"],
         },
       ],
     },
@@ -71,7 +103,7 @@ window.KB = {
         {
           name: "Transformers",
           repo: "huggingface/transformers",
-          stars: 166659, pushed: "2026-09",
+          stars: 166665, pushed: "2026-09",
           desc: "Hugging Face 旗舰库：数千个预训练模型的一站式下载与使用入口。",
           why: "当今 NLP 生态的事实标准：一行代码加载 BERT/GPT 等预训练模型，本站 NLP 概念板块讲的词向量、Transformer 都能在它身上直接体验。",
           tags: ["免费", "库", "生态核心", "活跃"],
@@ -87,7 +119,7 @@ window.KB = {
         {
           name: "NLTK",
           repo: "nltk/nltk",
-          stars: 14727, pushed: "2026-09",
+          stars: 14728, pushed: "2026-09",
           desc: "最经典的「为语言学家写的」NLP Python 库。",
           why: "API 设计处处照顾语言学直觉（词、句、树、语料），配合免费的 NLTK Book，是理解 NLP 基本概念的最佳练手场。",
           tags: ["免费", "库", "语言学友好"],
@@ -95,7 +127,7 @@ window.KB = {
         {
           name: "spaCy",
           repo: "explosion/spaCy",
-          stars: 33922, pushed: "2026-08",
+          stars: 33923, pushed: "2026-08",
           desc: "工业级自然语言处理库，速度与精度兼备。",
           why: "英文文本处理的事实标准，本站 Python 板块的示例就在用它；文档与免费互动课程（course.spacy.io）质量极高。",
           tags: ["免费", "库", "工程级"],
@@ -127,7 +159,7 @@ window.KB = {
         {
           name: "Python - 100天从新手到大师",
           repo: "jackfrued/Python-100-Days",
-          stars: 186896, pushed: "2026-07",
+          stars: 186903, pushed: "2026-07",
           desc: "中文圈最流行的闯关式 Python 教程，图文并茂、配套代码。",
           why: "前 30 天恰好覆盖本站 Python 板块要求的「够用五件套 + 文件处理」，节奏感强，适合每天打卡式学习。",
           tags: ["免费", "中文", "零基础友好", "体系化"],
@@ -135,7 +167,7 @@ window.KB = {
         {
           name: "Awesome Python",
           repo: "vinta/awesome-python",
-          stars: 323086, pushed: "2026-09",
+          stars: 323160, pushed: "2026-09",
           desc: "「我想用 Python 做 X，该用哪个库」的权威答案库。",
           why: "按用途分类的库索引（文本处理、数据、爬虫……），当你需要新工具时先来这里查，避免在搜索引擎里踩坑。",
           tags: ["免费", "资源索引", "常备手册"],
@@ -143,7 +175,7 @@ window.KB = {
         {
           name: "Project-based Learning",
           repo: "practical-tutorials/project-based-learning",
-          stars: 284664, pushed: "2026-09",
+          stars: 284708, pushed: "2026-09",
           desc: "按项目组织的编程教程汇编，覆盖 Python 等多种语言。",
           why: "语法过关后最好的下一步：挑一个贴近自己研究的小项目照着做完，比再读十本书都有用。",
           tags: ["免费", "项目式学习"],
@@ -151,7 +183,7 @@ window.KB = {
         {
           name: "learn-python",
           repo: "trekhleb/learn-python",
-          stars: 18312, pushed: "2026-04",
+          stars: 18313, pushed: "2026-04",
           desc: "可运行的 Python 语法 playground 与速查表。",
           why: "每个语法点都是一个能直接跑的脚本并带测试——完美契合本站「能运行、能修改现成脚本」的够用哲学，适合当字典。",
           tags: ["免费", "速查表", "可运行"],
@@ -167,7 +199,7 @@ window.KB = {
         {
           name: "《动手学深度学习》中文版",
           repo: "d2l-ai/d2l-zh",
-          stars: 81112, pushed: "2024-07",
+          stars: 81115, pushed: "2024-07",
           desc: "面向中文读者的深度学习教材，公式、代码、讨论三合一。",
           why: "被 70 多个国家的 500 多所大学采用；每一节都能在 Colab 里边跑边学，是中文世界最好的 DL 入门书之一。",
           tags: ["免费", "中文", "教材", "研发向"],
@@ -175,7 +207,7 @@ window.KB = {
         {
           name: "fastbook（fastai）",
           repo: "fastai/fastbook",
-          stars: 25327, pushed: "2026-09",
+          stars: 25329, pushed: "2026-09",
           desc: "fastai 官方教材的 Jupyter Notebook 版，自顶向下教深度学习。",
           why: "教学理念独特：先跑通世界级模型再回头拆原理——对非科班学习者的正反馈极强，免费开源可在线阅读。",
           tags: ["免费", "Notebook", "非科班友好"],
@@ -183,7 +215,7 @@ window.KB = {
         {
           name: "Neural Networks: Zero to Hero",
           repo: "karpathy/nn-zero-to-hero",
-          stars: 24532, pushed: "2024-08",
+          stars: 24534, pushed: "2024-08",
           desc: "OpenAI 创始成员 Andrej Karpathy 的手写神经网络视频课及代码。",
           why: "从自动微分一路手写到 GPT，讲解深入浅出；想建立真正的直觉而不只是调包，看这套课。",
           tags: ["免费", "视频课", "研发向"],
@@ -191,10 +223,82 @@ window.KB = {
         {
           name: "nanoGPT",
           repo: "karpathy/nanoGPT",
-          stars: 63375, pushed: "2025-11",
+          stars: 63380, pushed: "2025-11",
           desc: "最简洁的 GPT 训练 / 微调参考实现（约 300 行核心代码）。",
           why: "把 NLP 概念板块讲的 Transformer 变成能逐行读懂的代码——「教学级最小实现」的天花板，研发向面试前值得精读。",
           tags: ["免费", "代码教材", "Transformer"],
+        },
+      ],
+    },
+    {
+      id: "algo",
+      icon: "⚙️",
+      name: "算法工程师进阶",
+      desc: "研发向弹药库：从 PyTorch 到 Transformer 逐行实现，再到大模型微调与部署的工程实战。",
+      items: [
+        {
+          name: "PyTorch 官方教程",
+          repo: "pytorch/tutorials",
+          stars: 9345, pushed: "2026-09",
+          desc: "PyTorch 官方教程集：从张量入门到分布式训练、部署的全链路。",
+          why: "框架的一手资料永远比二手教程可靠；先跑通官方的「60 分钟闪电入门」，再按自己的任务方向翻对应章节。",
+          tags: ["免费", "官方文档", "研发向", "活跃"],
+        },
+        {
+          name: "手把手 PyTorch",
+          repo: "datawhalechina/thorough-pytorch",
+          stars: 3811, pushed: "2026-01",
+          desc: "Datawhale 出品的中文 PyTorch 入门教程，从安装讲到模型训练。",
+          why: "中文圈最成体系的 PyTorch 教程之一，配套在线阅读与讨论区；对非科班读者比官方英文文档友好得多。",
+          tags: ["免费", "中文", "研发向", "系统课程"],
+        },
+        {
+          name: "论文逐行实现（labml-nn）",
+          repo: "labmlai/annotated_deep_learning_paper_implementations",
+          stars: 67505, pushed: "2026-01",
+          desc: "60+ 篇深度学习论文的逐行注释实现：Transformer 全家桶、优化器、扩散模型……",
+          why: "「读懂论文 → 看懂代码」的最佳桥梁：原文与实现左右对照着讲。想精读 Transformer 及其变体，从这里入手比硬啃原论文快得多。",
+          tags: ["免费", "代码教材", "Transformer", "研发向"],
+        },
+        {
+          name: "开源大模型食用指南",
+          repo: "datawhalechina/self-llm",
+          stars: 32329, pushed: "2026-09",
+          desc: "针对中文环境的大模型微调（全参/LoRA）与部署保姆级教程。",
+          why: "算法工程师的日常就是「把开源模型跑起来、调到位」：环境配置、推理、LoRA 微调一步步照做即可，覆盖国内外主流开源模型。",
+          tags: ["免费", "中文", "微调实战", "活跃"],
+        },
+        {
+          name: "llm-action 大模型实战",
+          repo: "liguodongiot/llm-action",
+          stars: 25111, pushed: "2026-07",
+          desc: "大模型技术原理与工程化实战：训练、推理、部署、显存优化。",
+          why: "补齐「为什么这么做」的原理层：分布式训练、量化、推理加速的系统性讲解，面试和实战双吃。",
+          tags: ["免费", "中文", "工程化", "研发向"],
+        },
+        {
+          name: "LlamaFactory",
+          repo: "hiyouga/LlamaFactory",
+          stars: 75018, pushed: "2026-09",
+          desc: "一站式大模型微调工具：100+ 模型的 LoRA/全参微调与评估（ACL 2024）。",
+          why: "学术界与工业界都在用的微调框架：WebUI 里就能完成训练与评测，是「亲手微调一个模型」成本最低的入口。",
+          tags: ["免费", "微调工具", "工程级", "活跃"],
+        },
+        {
+          name: "南瓜书（西瓜书公式详解）",
+          repo: "datawhalechina/pumpkin-book",
+          stars: 26097, pushed: "2026-04",
+          desc: "周志华《机器学习》全书公式的逐步推导详解。",
+          why: "研发向面试绕不开机器学习基础；西瓜书读不下去的地方，南瓜书逐个公式补推导，社区还配套了讲解视频。",
+          tags: ["免费", "中文", "教材配套", "研发向"],
+        },
+        {
+          name: "Datawhale 面经",
+          repo: "datawhalechina/daily-interview",
+          stars: 3845, pushed: "2026-07",
+          desc: "算法岗面经汇总：机器学习、NLP、推荐、开发按模块整理。",
+          why: "准备 NLP 算法工程师求职的高频题库：机器学习基础、NLP 经典问题与大模型「八股」每天刷几题，面试不慌。",
+          tags: ["免费", "中文", "面试", "求职"],
         },
       ],
     },

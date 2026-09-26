@@ -1,6 +1,7 @@
 /* ============================================================
-   experiments.js · 三个在线实验
+   experiments.js · 五个在线实验
    文本相似度（TF-IDF + 余弦）/ Burrows-Delta 文体计量 / 语料统计
+   / 下一词预测器（bigram 语言模型）/ 标注一致性（Cohen's kappa）
    依赖：core.js（$、$$、escapeHtml）
    ============================================================ */
 "use strict";
@@ -235,6 +236,160 @@ function runStats() {
   out.innerHTML = html;
 }
 
+/* ============================================================
+   实验四 · 下一词预测器（bigram 语言模型，字符级）
+   ============================================================ */
+const LM_DEFAULT_CORPUS = "语言是人类独有的能力。我们用语言思考，用语言交流，用语言记录世界。计算机阅读语言，统计语言，模仿语言。语言的边界就是思想的边界。我们思想的边界，就是我们语言的边界。当计算机开始模仿语言，语言便不再只是人与人之间的桥梁，它也成了人与机器之间的纽带。";
+const LM_DEFAULT_SEED = "的";
+
+function bigramModel(text) {
+  const cs = text.match(/[\u4e00-\u9fff。]/g) || [];
+  const model = new Map();
+  for (let i = 0; i + 1 < cs.length; i++) {
+    if (!model.has(cs[i])) model.set(cs[i], new Map());
+    const row = model.get(cs[i]);
+    row.set(cs[i + 1], (row.get(cs[i + 1]) || 0) + 1);
+  }
+  return { total: cs.length, model };
+}
+
+function bigramNext(model, prev) {
+  const row = model.get(prev);
+  if (!row) return [];
+  const total = [...row.values()].reduce((s, v) => s + v, 0);
+  return [...row.entries()]
+    .map(([ch, n]) => ({ ch, p: n / total }))
+    .sort((a, b) => b.p - a.p);
+}
+
+function lmReadSeed() {
+  const m = $("#lmSeed").value.trim().match(/[\u4e00-\u9fff]/);
+  return m ? m[0] : null;
+}
+
+function lmBarlist(dist) {
+  let html = `<div class="barlist">`;
+  dist.forEach(({ ch, p }) => {
+    html += `<div class="bar-row"><span class="tok">${escapeHtml(ch)}</span>
+      <div class="bar-track mini"><div class="bar-fill" style="width:${(p * 100).toFixed(1)}%"></div></div>
+      <span class="num">${(p * 100).toFixed(1)}%</span></div>`;
+  });
+  return html + `</div>`;
+}
+
+function lmValidate(out) {
+  if ($("#lmCorpus").value.trim().length < 30) {
+    out.innerHTML = `<p class="note">⚠️ 语料太短了——至少给模型 30 个字的"教材"。</p>`;
+    return null;
+  }
+  const seed = lmReadSeed();
+  if (!seed) out.innerHTML = `<p class="note">⚠️ 请在"接龙开头"里填一个汉字。</p>`;
+  return seed;
+}
+
+function runLMPredict() {
+  const out = $("#lmOut");
+  const seed = lmValidate(out);
+  if (!seed) return;
+  const { total, model } = bigramModel($("#lmCorpus").value);
+  let pairs = 0;
+  for (const row of model.values()) pairs += row.size;
+  const dist = bigramNext(model, seed);
+  if (!dist.length) {
+    out.innerHTML = `<p class="verdict">语料里没出现过「${escapeHtml(seed)}」——模型对它一无所知，什么也预测不了。</p>
+      <p class="note">💡 这就是语言模型的本质：它"认识"一个字，仅仅因为训练语料里见过它。</p>`;
+    return;
+  }
+  out.innerHTML = `<p class="verdict">「${escapeHtml(seed)}」后面最可能跟：<strong>${dist.slice(0, 3).map(d => escapeHtml(d.ch)).join("、")}</strong></p>
+    <h4>P(下字 | 上字="${escapeHtml(seed)}") 的概率榜</h4>
+    ${lmBarlist(dist.slice(0, 8))}
+    <p class="note">💡 训练语料共 ${total} 个字、${pairs} 种"上字→下字"组合。这张概率榜就是模型的全部知识——GPT 也是它，只是看得更远、参数更多。</p>`;
+}
+
+function runLMGenerate() {
+  const out = $("#lmOut");
+  const seed = lmValidate(out);
+  if (!seed) return;
+  const { model } = bigramModel($("#lmCorpus").value);
+  const picked = [seed];
+  for (let i = 0; i < 20; i++) {
+    const dist = bigramNext(model, picked[picked.length - 1]);
+    if (!dist.length) break;
+    picked.push(dist[0].ch); // 贪心：每一步都选概率最高的字
+  }
+  out.innerHTML = `<p class="verdict">模型续写：<strong>${escapeHtml(picked.join(""))}</strong></p>
+    <p class="note">💡 这是"贪心"生成。它常常原地打转——只有一步记忆的模型很快绕回自己最熟的循环。GPT 的两剂解药：看得更远（几千 token 的上下文）＋按概率掷骰子（采样与温度）。</p>`;
+}
+
+/* ============================================================
+   实验五 · 标注一致性实验台（Cohen's kappa，两人 × 10 条）
+   ============================================================ */
+const KAPPA_LEVELS = ["差", "中", "良", "优"];
+const KAPPA_N = 10;
+const KAPPA_DEFAULT_A = [3, 2, 3, 1, 0, 2, 3, 1, 2, 3];
+const KAPPA_DEFAULT_B = [3, 1, 2, 1, 0, 2, 3, 0, 2, 2];
+
+function buildKappaGrid() {
+  const opts = KAPPA_LEVELS.map((lv, v) => `<option value="${v}">${lv}</option>`).join("");
+  let html = `<div class="kappa-row kappa-head"><span></span><span>评分者 A（你）</span><span>评分者 B</span></div>`;
+  for (let i = 0; i < KAPPA_N; i++) {
+    html += `<div class="kappa-row"><span class="item-name">条目 ${i + 1}</span>
+      <select data-rater="a" aria-label="评分者A对条目${i + 1}打分">${opts}</select>
+      <select data-rater="b" aria-label="评分者B对条目${i + 1}打分">${opts}</select></div>`;
+  }
+  $("#kappaGrid").innerHTML = html;
+}
+
+function kappaBand(k) {
+  if (k < 0) return "比碰巧还差——评分标准可能有误会";
+  if (k <= 0.2) return "略有一致";
+  if (k <= 0.4) return "一般（先修标注规范，再谈数据）";
+  if (k <= 0.6) return "中等一致";
+  if (k <= 0.8) return "强一致";
+  return "几乎完全一致";
+}
+
+function runKappa() {
+  const a = $$("#kappaGrid select[data-rater='a']").map(s => Number(s.value));
+  const b = $$("#kappaGrid select[data-rater='b']").map(s => Number(s.value));
+  const out = $("#kappaOut");
+  if (a.length !== KAPPA_N || b.length !== KAPPA_N) {
+    out.innerHTML = `<p class="note">⚠️ 打分行还没有生成，请刷新页面。</p>`;
+    return;
+  }
+  const n = a.length;
+  const po = a.filter((x, i) => x === b[i]).length / n;
+  const ca = KAPPA_LEVELS.map((_, c) => a.filter(v => v === c).length);
+  const cb = KAPPA_LEVELS.map((_, c) => b.filter(v => v === c).length);
+  const pe = ca.reduce((s, x, c) => s + (x * cb[c]) / n ** 2, 0);
+  const kappa = pe < 1 ? (po - pe) / (1 - pe) : 1;
+
+  let html = `<p class="verdict">Cohen's κ = <strong>${kappa.toFixed(2)}</strong> · ${kappaBand(kappa)}</p>`;
+  html += `<div class="stat-chips">
+    <div class="stat-chip"><b>${po.toFixed(2)}</b><span>实际一致率 po</span></div>
+    <div class="stat-chip"><b>${pe.toFixed(2)}</b><span>碰巧一致率 pe</span></div>
+    <div class="stat-chip"><b>${kappa.toFixed(2)}</b><span>Cohen's κ</span></div>
+  </div>`;
+  html += `<h4>打分交叉表（行 = 评分者 A，列 = 评分者 B）</h4><div style="overflow-x:auto"><table class="simmat"><thead><tr><th></th>${KAPPA_LEVELS.map(lv => `<th>${lv}</th>`).join("")}</tr></thead><tbody>`;
+  KAPPA_LEVELS.forEach((lv, r) => {
+    html += `<tr><th class="row-label">${lv}</th>`;
+    KAPPA_LEVELS.forEach((_, c) => {
+      const cell = a.reduce((s, x, i) => s + (x === r && b[i] === c ? 1 : 0), 0);
+      html += `<td style="${r === c ? "background:var(--soft);" : ""}${r === c && cell ? "font-weight:700;" : ""}">${cell || "·"}</td>`;
+    });
+    html += `</tr>`;
+  });
+  html += `</tbody></table></div>`;
+  html += `<p class="note">💡 κ 扣掉了"瞎蒙也能蒙对"的部分，所以比直接算重合百分比更公平——两人都只打「优」时重合率 100%，κ 却可能不高。把评分者 B 换成 LLM 的打分，就是校验 LLM-as-a-Judge 是否可信的标准做法。</p>`;
+  out.innerHTML = html;
+}
+
+function resetKappa() {
+  $$("#kappaGrid select[data-rater='a']").forEach((s, i) => (s.value = KAPPA_DEFAULT_A[i]));
+  $$("#kappaGrid select[data-rater='b']").forEach((s, i) => (s.value = KAPPA_DEFAULT_B[i]));
+  runKappa();
+}
+
 /* ---------------- 实验初始化 ---------------- */
 function initExperiments() {
   // 恢复默认按钮
@@ -252,15 +407,28 @@ function initExperiments() {
     $("#deltaUnknown").value = DELTA_UNKNOWN_DEFAULT;
     runDelta();
   });
+  $("#lmReset").addEventListener("click", () => {
+    $("#lmCorpus").value = LM_DEFAULT_CORPUS;
+    $("#lmSeed").value = LM_DEFAULT_SEED;
+    runLMPredict();
+  });
+  $("#kappaReset").addEventListener("click", resetKappa);
 
   $("#simRun").addEventListener("click", runSimilarity);
   $("#deltaRun").addEventListener("click", runDelta);
   $("#statsRun").addEventListener("click", runStats);
+  $("#lmRun").addEventListener("click", runLMPredict);
+  $("#lmGen").addEventListener("click", runLMGenerate);
+  $("#kappaRun").addEventListener("click", runKappa);
+
+  // 标注一致性实验台：生成打分行并填入示例（其他实验的语料在 HTML 里）
+  buildKappaGrid();
+  resetKappa();
 
   // 首次进入项目页时预跑一遍，避免空白
   const preRun = () => {
     if (currentPageId() === "projects") {
-      runSimilarity(); runDelta(); runStats();
+      runSimilarity(); runDelta(); runStats(); runLMPredict();
       window.removeEventListener("hashchange", preRun);
     }
   };

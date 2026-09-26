@@ -85,7 +85,7 @@
             <span class="mod-icon">💬</span>
             <div class="mod-body">
               <h3>NLP 概念</h3>
-              <p>词袋、TF-IDF、词向量、Token、Transformer、上下文窗口——全部用大白话讲。</p>
+              <p>从词袋、TF-IDF 到 RAG、Agent、LLM 评测——从经典一路讲到 2026，全部用大白话。</p>
               <div class="progress"><div class="bar-track"><div class="bar-fill" data-module-progress="nlp"></div></div><span class="progress-num" data-module-progress="nlp"></span></div>
             </div>
           </a>
@@ -93,7 +93,7 @@
             <span class="mod-icon">🧪</span>
             <div class="mod-body">
               <h3>实操项目</h3>
-              <p>浏览器里直接运行：Burrows-Delta 文体计量、文本相似度、语料统计，改语料看结果。</p>
+              <p>浏览器里直接运行五个实验：文体计量、文本相似度、语言模型接龙、标注一致性、语料统计。</p>
               <div class="progress"><div class="bar-track"><div class="bar-fill" data-module-progress="projects"></div></div><span class="progress-num" data-module-progress="projects"></span></div>
             </div>
           </a>
@@ -194,7 +194,7 @@
                 <button class="check-btn round" type="button" data-pid="rm-a-5" data-module="roadmap" aria-label="标记完成：实操项目"></button>
                 <div>
                   <div class="step-head"><strong>实操项目</strong><span class="chip">第 4 个月</span></div>
-                  <p>完成本站三个实验：Burrows-Delta 文体计量、文本相似度、语料统计——然后全部换上你自己的语料。</p>
+                  <p>完成本站五个实验：文体计量、相似度、语言模型接龙、标注一致性、语料统计——然后全部换上你自己的语料。</p>
                 </div>
               </li>
               <li class="step">
@@ -269,6 +269,10 @@
               </li>
             </ol>
           </article>
+        </div>
+
+        <div class="callout c-info">
+          <strong>🧰 研发向的弹药库已就位：</strong>知识库新增<a href="#/kb">「算法工程师进阶」</a>分类——PyTorch 官方教程与中文入门、Transformer 论文逐行实现、开源大模型微调与部署实战、南瓜书公式推导、算法岗面经，正好对应路线 B 的每一步。
         </div>
 
         <div class="card compare-card">
@@ -682,8 +686,8 @@ for sentence in doc.sentences:
             <div class="kcard-head"><h4>Token</h4><span class="chip">约 10 分钟</span></div>
             <p class="analogy">打个比方：大模型读书时不是按"词"也不是按"字"，而是按 <em>token</em>——一种介于字和词之间的碎片。「人工智能」可能被切成「人工」+「智能」两块。</p>
             <dl class="k-meta">
-              <div><dt>冷知识</dt><dd>为什么大模型数不对 "strawberry" 里有几个 r？因为它看到的不是字母，而是 token。</dd></div>
-              <div><dt>实用</dt><dd>API 按 token 计费；"上下文长度"说的也是 token 数。1 个汉字 ≈ 1–2 个 token。</dd></div>
+              <div><dt>冷知识</dt><dd>为什么早期大模型数不对 "strawberry" 里有几个 r？因为它看到的不是字母，而是 token。（新一代模型已基本修复，但原理仍值得知道。）</dd></div>
+              <div><dt>实用</dt><dd>API 按 token 计费；"上下文长度"说的也是 token 数。1 个汉字约对应 0.6–2 个 token，不同分词器差异不小。</dd></div>
             </dl>
             <button class="check-btn" type="button" data-pid="nlp-4" data-module="nlp"><span class="ck"></span>标记已掌握</button>
           </article>
@@ -700,10 +704,10 @@ for sentence in doc.sentences:
 
           <article class="kcard">
             <div class="kcard-head"><h4>上下文窗口 Context Window</h4><span class="chip">约 5 分钟</span></div>
-            <p class="analogy">打个比方：模型的"工作记忆"。它一次只能看见窗口里的内容——比如 8K、128K 个 token。</p>
+            <p class="analogy">打个比方：模型的"工作记忆"。它一次只能看见窗口里的内容——从几万到上百万 token 不等，2026 年的旗舰模型已能一次读进一整部长篇。</p>
             <dl class="k-meta">
               <div><dt>后果一</dt><dd>文章太长，开头的部分会被"挤出去"，模型就忘了。</dd></div>
-              <div><dt>后果二</dt><dd>于是有了 RAG：先检索出最相关的几段，再塞进窗口让模型读。别被术语吓到——本质是"先划重点，再答题"。</dd></div>
+              <div><dt>后果二</dt><dd>于是有了 RAG（下文有专卡）：先检索出最相关的几段，再塞进窗口让模型读。别被术语吓到——本质是"先划重点，再答题"。</dd></div>
             </dl>
             <button class="check-btn" type="button" data-pid="nlp-6" data-module="nlp"><span class="ck"></span>标记已掌握</button>
           </article>
@@ -726,6 +730,128 @@ for sentence in doc.sentences:
             <button class="check-btn" type="button" data-pid="nlp-8" data-module="nlp"><span class="ck"></span>标记已掌握</button>
           </article>
         </div>
+
+        <div class="group-head">
+          <h3>LLM 时代的新概念 <span class="stars">2023 年之后发生了什么</span></h3>
+          <p>这批词你在新闻和论文里天天见到。它们不替换上面的基础，而是把基础"放大"——理解了它们，ChatGPT 们的宣传语就不再是黑话。</p>
+        </div>
+        <div class="kgrid concept-grid">
+          <article class="kcard">
+            <div class="kcard-head"><h4>RAG 检索增强生成</h4><span class="chip">约 5 分钟</span></div>
+            <p class="analogy">打个比方：<em>开卷考试</em>。模型不再硬靠记忆答题，而是先去资料库里翻出最相关的几段，抄在草稿纸上，再照着草稿作答。</p>
+            <dl class="k-meta">
+              <div><dt>为什么需要</dt><dd>模型知识有截止日期，长资料又塞不进上下文窗口——"先检索、再生成"，两步都省。</dd></div>
+              <div><dt>哪里见到</dt><dd>企业知识库问答、文献综述助手，本质都是 RAG。评价它要看两处：检索得准不准（找对段落了吗）＋生成得忠实吗（有没有脱离草稿自由发挥）。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-9" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>提示工程 Prompt Engineering</h4><span class="chip">约 10 分钟</span></div>
+            <p class="analogy">打个比方：给一个聪明但不了解你课题的<em>实习生</em>布置任务——说清背景、给一两个范例、明确输出格式，产出立刻不一样。</p>
+            <dl class="k-meta">
+              <div><dt>常用招式</dt><dd>角色设定、少样本示例（先给范例）、思维链（"一步一步想"）、结构化输出（"只输出 JSON 表格"）。</dd></div>
+              <div><dt>与你相关</dt><dd>让大模型帮你标注语料时，提示词就是你写的"标注规范"——规范写得越清楚，标注越稳定。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-10" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>后训练与 RLHF</h4><span class="chip">约 10 分钟</span></div>
+            <p class="analogy">打个比方：预训练出来的模型像读遍图书馆但<em>不会聊天</em>的书呆子；后训练教它"好好说话"——先看人类示范（SFT），再按人类偏好奖惩（RLHF）。</p>
+            <dl class="k-meta">
+              <div><dt>为什么重要</dt><dd>ChatGPT 与早期 GPT 的差距主要不在"知道更多"，而在后训练。论文里的"对齐（Alignment）"说的就是这件事。</dd></div>
+              <div><dt>两个缩写</dt><dd>SFT = 监督微调（学人类示范）；RLHF = 基于人类反馈的强化学习（按偏好打分调整）。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-11" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>推理模型与测试时计算</h4><span class="chip">约 5 分钟</span></div>
+            <p class="analogy">打个比方：普通模型读完题<em>抢答</em>；推理模型（o 系列、DeepSeek-R1 这类）先在草稿纸上写满推理过程再交卷——"多想几步"是用算力换正确率。</p>
+            <dl class="k-meta">
+              <div><dt>术语对照</dt><dd>论文里的 test-time compute、thinking budget、CoT，说的都是这件事。</dd></div>
+              <div><dt>适用边界</dt><dd>数学、代码、多步逻辑提升明显；日常问答、翻译未必更好，还更贵更慢——选模型时别迷信"会思考"。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-12" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>Agent 与工具调用</h4><span class="chip">约 10 分钟</span></div>
+            <p class="analogy">打个比方：普通对话是"你问我答"；Agent 是你给一个目标，它自己<em>拆步骤、调工具</em>（搜索、代码、计算器）、看结果、再修正——像一个会自己用电脑的助理。</p>
+            <dl class="k-meta">
+              <div><dt>关键词</dt><dd>Function calling（模型输出"我要调哪个工具"）、MCP（2025 年起工具接入的通用协议）、多步规划。</dd></div>
+              <div><dt>研究者用法</dt><dd>让 Agent 跑"批量标注 → 汇总 → 抽查"的流水线，你只验收结果——但每一步都要留人工抽查点。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-13" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>多模态 Multimodal</h4><span class="chip">约 5 分钟</span></div>
+            <p class="analogy">打个比方：以前的模型是"文字进、文字出"；多模态模型<em>看得懂图、听得懂声音</em>——把文字、图像、音频都翻译成同一种"通用语"（向量）再一起理解。</p>
+            <dl class="k-meta">
+              <div><dt>与你相关</dt><dd>扫描古籍的文字识别（OCR）、图表转数据、手稿转写，都已有可用的多模态模型。</dd></div>
+              <div><dt>提醒</dt><dd>图像里的文字识别常出错（小语种尤甚），关键数据必须人工复核——幻觉守则同样适用。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-14" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+        </div>
+
+        <div class="group-head">
+          <h3>评测素养 · 科研刚需 <span class="stars">你的新主场</span></h3>
+          <p>会用 AI 之后，更重要的问题是：<strong>它做得到底好不好？</strong>这一组概念决定你能不能科学地回答——也是文科背景在 AI 时代最有竞争力的技能。</p>
+        </div>
+        <div class="kgrid concept-grid">
+          <article class="kcard">
+            <div class="kcard-head"><h4>Benchmark 与榜单</h4><span class="badge b-core">评测 · 必学</span></div>
+            <p class="analogy">打个比方：给模型办<em>统考</em>——一套固定题目（MMLU 考知识、GSM8K 考数学……），答完算分、排成榜单。LMArena 则换了种考法：让真人<em>盲测</em>两个模型的回答，投票选出更好的。</p>
+            <dl class="k-meta">
+              <div><dt>为什么重要</dt><dd>选模型、写论文都要引用分数；但同一模型换个考法，排名可能大变。</dd></div>
+              <div><dt>批判性一句</dt><dd>榜单分数是"在那套题上的分数"，不是"对你的任务也好"的保证——这正是后面几张卡片要解决的问题。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-15" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>LLM-as-a-Judge</h4><span class="badge b-core">评测 · 必学</span></div>
+            <p class="analogy">打个比方：开放性任务（翻译得好不好？摘要全不全？）<em>没有标准答案</em>，人工评分又贵又慢——于是让一个强模型当"阅卷老师"，替人给其他模型的输出打分。</p>
+            <dl class="k-meta">
+              <div><dt>好处</dt><dd>便宜、快、可重复，已是论文里的标配做法。</dd></div>
+              <div><dt>坑</dt><dd>会偏爱自己的输出、偏爱更长的答案、偏爱排在后面的选项。正式使用前，先抽查"阅卷老师"和人工打分是否一致——方法见项目五。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-16" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>数据污染与基准饱和</h4><span class="badge b-rec">评测 · 推荐</span></div>
+            <p class="analogy">打个比方：<em>考卷泄露</em>。基准题可能就混在训练数据里，模型"背过答案"——分数再高也说不清是真会还是背会。另一个问题是"考崩了"：模型太强，老卷子接近满分，失去区分度。</p>
+            <dl class="k-meta">
+              <div><dt>怎么识别</dt><dd>分数好得反常、模型能一字不差背出题目，都要怀疑污染。</dd></div>
+              <div><dt>新趋势</dt><dd>私有测试集、动态换题、人工盲测竞技场，都是为了反污染、反刷题。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-17" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>人工评测与标注一致性</h4><span class="badge b-core">评测 · 科研刚需</span></div>
+            <p class="analogy">让两个人独立给同一批输出打分，结果却大相径庭？学界用 <em>Cohen's κ 系数</em>回答"你们的打分是一致的，还是纯属巧合"：κ =（实际一致率 − 碰巧一致率）÷（1 − 碰巧一致率）。</p>
+            <dl class="k-meta">
+              <div><dt>科研守则</dt><dd>论文里的人工标注都要报告标注者人数与一致性系数；这是审稿人检查标注质量的通行证。</dd></div>
+              <div><dt>动手</dt><dd>去项目五亲手算一次 κ——你会永远记住它。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-18" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+
+          <article class="kcard">
+            <div class="kcard-head"><h4>机器翻译质量评估</h4><span class="badge b-rec">评测 · 翻译方向</span></div>
+            <p class="analogy">怎么给译文打分？经典做法是和人工参考译文<em>"对答案"</em>：BLEU 算词组重叠率、chrF 按字符算——重叠越高分越高；新一代 COMET 用神经网络学"人类怎么打分"，和译员直觉更接近。</p>
+            <dl class="k-meta">
+              <div><dt>术语</dt><dd>自动指标（BLEU/chrF/COMET）便宜但不完美——改个同义词分数就掉；MQM 是人工标注规范：按准确度、流畅度逐条扣分。</dd></div>
+              <div><dt>为什么值得学</dt><dd>MT 评测是"评测方法论"最成熟的入口。学会它，评测任何 LLM 输出都是同一套思路。</dd></div>
+            </dl>
+            <button class="check-btn" type="button" data-pid="nlp-19" data-module="nlp"><span class="ck"></span>标记已掌握</button>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -735,7 +861,7 @@ for sentence in doc.sentences:
         <header class="page-head">
           <span class="crumb">模块 05 · 实战</span>
           <h2>实操项目</h2>
-          <p class="lede">三个实验都可以<strong>直接在浏览器里运行</strong>：改掉文本框里的语料，点按钮，看结果。每个项目都附了对应的 Python 脚本，等你装好环境就能在本地跑同样的东西。</p>
+          <p class="lede">五个实验都可以<strong>直接在浏览器里运行</strong>：改掉文本框里的语料，点按钮，看结果。每个项目都附了对应的 Python 脚本，等你装好环境就能在本地跑同样的东西。</p>
           <div class="progress"><div class="bar-track"><div class="bar-fill" data-module-progress="projects"></div></div><span class="progress-num" data-module-progress="projects"></span></div>
         </header>
 
@@ -913,6 +1039,105 @@ for w, n in counter.most_common(20):
           <div class="callout c-tip"><strong>延伸挑战：</strong>① 粘贴你自己最长的一篇语料（几千字），看看高频词表；② 切换"字符 / 二元组"两种模式，对比 TTR 变化；③ 高频词从第 2 名往后逐名递减得很快吗？——恭喜，你亲眼见到了 Zipf 定律；④ 长文本请用下方 Python 脚本，网速和浏览器内存都更友好。</div>
           <button class="check-btn" type="button" data-pid="proj-3" data-module="projects"><span class="ck"></span>完成此项目</button>
         </article>
+
+        <!-- 项目四：bigram 语言模型 -->
+        <article class="proj">
+          <div class="proj-head">
+            <h3>项目四 · 下一词预测器（bigram 语言模型）</h3>
+            <div><span class="chip">难度 ★★☆</span><span class="chip">约 30 分钟</span></div>
+          </div>
+          <p class="proj-use">用到的概念：<a href="#/math">条件概率</a>、<a href="#/nlp">Token</a>、语言模型</p>
+          <p><strong>原理白话版：</strong>语言模型的全部秘密就一句话：<strong>数一数语料里每个字后面最常跟哪些字</strong>，把"上文"变成"下一个字的概率榜"。这就是最古老的语言模型 bigram（二元模型）——GPT 的原理与它一脉相承，只是把"看前 1 个字"换成了"看前几千个字"。</p>
+
+          <div class="lab">
+            <div class="lab-title">🧪 在线实验室 · 改掉训练语料，看模型学会什么</div>
+            <label class="lab-label">训练语料（模型的知识只来自这里）<textarea id="lmCorpus">语言是人类独有的能力。我们用语言思考，用语言交流，用语言记录世界。计算机阅读语言，统计语言，模仿语言。语言的边界就是思想的边界。我们思想的边界，就是我们语言的边界。当计算机开始模仿语言，语言便不再只是人与人之间的桥梁，它也成了人与机器之间的纽带。</textarea></label>
+            <div class="lab-actions">
+              <label class="mode-label">接龙开头（一个字）
+                <input type="text" id="lmSeed" value="的" maxlength="2" aria-label="接龙开头的字">
+              </label>
+              <button class="btn primary" id="lmRun" type="button">预测下一个字</button>
+              <button class="btn ghost" id="lmGen" type="button">让模型续写 20 字</button>
+              <button class="btn ghost" id="lmReset" type="button">恢复示例语料</button>
+            </div>
+            <div class="result" id="lmOut" aria-live="polite"></div>
+          </div>
+
+          <div class="code-block"><div class="code-head"><span class="code-title">lm_bigram.py · Python 版（纯标准库）</span><button class="mini-btn copy-btn" type="button">复制</button><button class="mini-btn dl-btn" type="button" data-fname="lm_bigram.py">下载 .py</button></div>
+<pre><code># 字符级 bigram 语言模型：语言模型的一切，从"数一数"开始
+# 纯标准库，pip install 什么都不需要
+from collections import Counter, defaultdict
+import random
+
+with open("corpus.txt", encoding="utf-8") as f:
+    text = f.read()
+chars = [c for c in text if "\u4e00" &lt;= c &lt;= "\u9fff" or c == "。"]
+
+# 1. 训练：数"上一个字 → 下一个字"的出现次数
+model = defaultdict(Counter)
+for a, b in zip(chars, chars[1:]):
+    model[a][b] += 1
+
+# 2. 预测：给定一个字，输出它后面最常跟的字（P(下字|上字)）
+prev = "语"
+counts = model[prev]
+total = sum(counts.values())
+print(f"「{prev}」后面最可能跟：")
+for ch, n in counts.most_common(5):
+    print(f"  {ch}   P = {n / total:.2f}")
+
+# 3. 续写：按概率随机采样，一路走 20 个字
+out = [prev]
+for _ in range(20):
+    chs, ns = zip(*model[out[-1]].items()) if model[out[-1]] else (["。"], [1])
+    out.append(random.choices(chs, ns)[0])
+print("模型续写：", "".join(out))</code></pre></div>
+
+          <div class="callout c-tip"><strong>延伸挑战：</strong>① 把开头从「语」换成「机」「思」，预测结果变了吗？② 续写几次——模型是不是在原地打转？这就是只有一步记忆的局限：GPT 靠"看前几千个 token"和随机采样打破死循环；③ 把语料换成你自己的（几百字起），看"模型"会不会染上你的用词习惯。</div>
+          <button class="check-btn" type="button" data-pid="proj-4" data-module="projects"><span class="ck"></span>完成此项目</button>
+        </article>
+
+        <!-- 项目五：标注一致性 -->
+        <article class="proj">
+          <div class="proj-head">
+            <h3>项目五 · 标注一致性实验台（Cohen's κ）</h3>
+            <div><span class="chip">难度 ★★☆</span><span class="chip">约 30 分钟</span></div>
+          </div>
+          <p class="proj-use">用到的概念：<a href="#/nlp">人工评测与标注一致性</a>、<a href="#/nlp">LLM-as-a-Judge</a>、<a href="#/math">假设检验</a></p>
+          <p><strong>原理白话版：</strong>找两位评分者（你和同学，或你和一个大模型）独立给同一批机器翻译打分。两人打分当然不会完全一样——问题是：这点重合是"英雄所见略同"，还是"瞎蒙也能蒙出来的巧合"？<strong>Cohen's κ 把"碰巧一致"从总分里扣掉</strong>：κ =（实际一致率 − 碰巧一致率）÷（1 − 碰巧一致率）。κ 越接近 1，标注越可信。</p>
+
+          <div class="lab">
+            <div class="lab-title">🧪 在线实验室 · 两位评分者给 10 条译文打分（差 / 中 / 良 / 优）</div>
+            <div class="kappa-grid" id="kappaGrid"></div>
+            <div class="lab-actions">
+              <button class="btn primary" id="kappaRun" type="button">计算一致性</button>
+              <button class="btn ghost" id="kappaReset" type="button">恢复示例打分</button>
+            </div>
+            <div class="result" id="kappaOut" aria-live="polite"></div>
+          </div>
+
+          <div class="code-block"><div class="code-head"><span class="code-title">cohens_kappa.py · Python 版（纯标准库）</span><button class="mini-btn copy-btn" type="button">复制</button><button class="mini-btn dl-btn" type="button" data-fname="cohens_kappa.py">下载 .py</button></div>
+<pre><code># Cohen's kappa：两位评分者的一致程度（校正"碰巧一致"）
+# 打分制随意，这里用 0差 / 1中 / 2良 / 3优；纯标准库
+from collections import Counter
+
+rater_a = [3, 2, 3, 1, 0, 2, 3, 1, 2, 3]   # 评分者A（比如你）
+rater_b = [3, 1, 2, 1, 0, 2, 3, 0, 2, 2]   # 评分者B（比如同学或 LLM）
+
+n = len(rater_a)
+po = sum(a == b for a, b in zip(rater_a, rater_b)) / n          # 实际一致率
+ca, cb = Counter(rater_a), Counter(rater_b)
+cats = set(rater_a) | set(rater_b)
+pe = sum(ca[c] * cb[c] for c in cats) / n ** 2                  # 碰巧一致率
+kappa = (po - pe) / (1 - pe) if pe &lt; 1 else 1.0
+
+print(f"实际一致率 po = {po:.2f}")
+print(f"碰巧一致率 pe = {pe:.2f}")
+print(f"Cohen's kappa = {kappa:.2f}   （0.41–0.60 中等，0.61–0.80 强）")</code></pre></div>
+
+          <div class="callout c-tip"><strong>延伸挑战：</strong>① 把评分者 B 改成故意唱反调，κ 会变成多少？② 两人都只打「优」，κ 反而可能变差（碰巧一致率太高）——这就是 κ 比直接算重合百分比更公平的原因；③ 把评分者 B 换成一个 LLM 的打分：这正是校验 LLM-as-a-Judge 是否可信的标准做法；④ 正式研究请再看一眼 <a href="#/nlp">MQM 标注规范</a>。</div>
+          <button class="check-btn" type="button" data-pid="proj-5" data-module="projects"><span class="ck"></span>完成此项目</button>
+        </article>
       </div>
     </section>
 
@@ -922,7 +1147,7 @@ for w, n in counter.most_common(20):
         <header class="page-head">
           <span class="crumb">模块 06 · 素材库</span>
           <h2>资源知识库</h2>
-          <p class="lede">系统梳理 GitHub 上的优质开源学习资源：<strong>31 个精选项目</strong>按技术方向分为七类，每条都含简介、推荐理由与实时可查的仓库链接。<strong>全部条目均经 GitHub API 逐一核验</strong>（星标 / 最近推送），优先收录持续维护、面向国际社区的项目。</p>
+          <p class="lede">系统梳理 GitHub 上的优质开源学习资源：<strong><span id="kbCount">35</span> 个精选项目</strong>按技术方向分为八类，每条都含简介、推荐理由与实时可查的仓库链接。<strong>全部条目均经 GitHub API 逐一核验</strong>（星标 / 最近推送），优先收录持续维护、面向国际社区的项目。</p>
           <div class="head-meta">
             <span class="chip" id="kbUpdated"></span>
             <span class="chip">点击卡片右上角链接直达仓库 ↗</span>
@@ -938,7 +1163,7 @@ for w, n in counter.most_common(20):
 
         <div class="callout c-info">
           <strong>🧭 怎么用这个知识库？</strong>
-          应用向读者按 <a href="#/roadmap">路线图</a> 顺序看「Python 与数据处理」和「中文 NLP 专项」即可起步；想进阶再去「大模型与前沿应用」；「计算人文 · 文体计量」是你写论文时的武器库。星标数为 2026-09-06 核验值，仅供判断体量与热度，<em>入选标准始终是「对你的研究有用」</em>。
+          应用向读者按 <a href="#/roadmap">路线图</a> 顺序看「Python 与数据处理」和「中文 NLP 专项」即可起步；想进阶再去「大模型与前沿应用」；「LLM 评测」对应概念页的评测素养专题，配项目五食用；「算法工程师进阶」是走研发向时的完整弹药库（PyTorch → Transformer → 微调部署 → 面试）；「计算人文 · 文体计量」是你写论文时的武器库。星标数为 <span id="kbVerifyDate">2026-09-26</span> 核验值，仅供判断体量与热度，<em>入选标准始终是「对你的研究有用」</em>。
         </div>
       </div>
     </section>
@@ -974,7 +1199,7 @@ for w, n in counter.most_common(20):
     <section class="page" id="page-resources">
       <div class="container">
         <header class="page-head">
-          <span class="crumb">模块 06 · 补给</span>
+          <span class="crumb">模块 08 · 补给</span>
           <h2>书单与资源清单</h2>
           <p class="lede">为语言学研究者定制的<strong>极简</strong>清单。原则：每一项都问一句"真的用得上吗？"——用不上的，再经典也不推荐。跟完应用向路线，你只需要下面这些。</p>
         </header>
@@ -997,6 +1222,14 @@ for w, n in counter.most_common(20):
             <div class="res-item">
               <div class="res-name">《女士品茶》 David Salsburg<span class="pill">科普书</span></div>
               <p>统计学是怎么改变科学的——当故事读，读完你对 p 值不再恐惧。适合睡前。</p>
+            </div>
+            <div class="res-item">
+              <div class="res-name">Seeing Theory · 看见统计<span class="pill">交互可视化</span><span class="pill">免费</span></div>
+              <p>布朗大学把概率、分布、贝叶斯、假设检验做成可拖动的动画。应用向当零食，研发向当预习。<a href="https://seeing-theory.brown.edu/" target="_blank" rel="noopener">前往 ↗</a></p>
+            </div>
+            <div class="res-item">
+              <div class="res-name">《Mathematics for Machine Learning》 Deisenroth 等<span class="pill">教材</span><span class="pill">免费官方 PDF</span></div>
+              <p>机器学习需要的数学一本讲齐（线代、解析几何、概率、优化），官网提供免费全文。决定走研发向、要系统补数学时，从这里开始。<a href="https://mml-book.github.io/" target="_blank" rel="noopener">前往 ↗</a></p>
             </div>
           </div>
         </div>
@@ -1024,7 +1257,7 @@ for w, n in counter.most_common(20):
           <div class="res-list">
             <div class="res-item">
               <div class="res-name">《Speech and Language Processing》 Jurafsky &amp; Martin<span class="pill">教材</span><span class="pill">免费在线</span></div>
-              <p>NLP 领域圣经，第 3 版草稿官网免费。只读方法概述章节，读得懂"方法部分"就算胜利。<a href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="noopener">前往 ↗</a></p>
+              <p>NLP 领域圣经，第 3 版草稿官网免费、持续更新（2026 年 8 月版已把第一卷整体重组为"大模型"体系：导论、Token、n-gram、Transformer 与预训练、后训练）。先读 Volume I，读得懂"方法部分"就算胜利。<a href="https://web.stanford.edu/~jurafsky/slp3/" target="_blank" rel="noopener">前往 ↗</a></p>
             </div>
             <div class="res-item">
               <div class="res-name">Stanford CS224N<span class="pill">公开课</span><span class="pill">免费</span></div>
@@ -1064,8 +1297,8 @@ for w, n in counter.most_common(20):
         </div>
 
         <div class="callout c-info">
-          <strong>🤖 第 15 项资源：AI 助教</strong>
-          遇到看不懂的报错、读不下去的论文段落，直接问 ChatGPT / Claude，并附一句"请解释给文科背景的读者听"。这是当代自学者最大的外挂——但记得按 NLP 概念板块的"幻觉守则"核查它说的话。
+          <strong>🤖 压轴资源 · AI 助教</strong>
+          遇到看不懂的报错、读不下去的论文段落，直接问 ChatGPT / Claude，并附一句"请解释给文科背景的读者听"。这是当代自学者最大的外挂——但记得按 NLP 概念板块的"幻觉守则"核查它说的话，评测它的输出质量，正是你在评测素养专题学到的第一课。
         </div>
       </div>
     </section>
