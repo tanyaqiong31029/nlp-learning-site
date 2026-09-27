@@ -44,15 +44,29 @@ const repos = [...new Set([
   ...[...fr.matchAll(/repo:\s*"([^"]+)"/g)].map(m => m[1]),
 ])];
 
-// ---------- GitHub API（3 路小并发；带 Token 时限流额度更高） ----------
+// ---------- GitHub API（3 路小并发；带 Token 时限流额度更高；15s 超时 + 网络错误重试 2 次） ----------
 const headers = { Accept: "application/vnd.github+json", "User-Agent": "nlp-learning-site-updater" };
 if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
 
 async function fetchRepo(repo) {
-  const res = await fetch(`https://api.github.com/repos/${repo}`, { headers });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const j = await res.json();
-  return { stars: j.stargazers_count, pushed: (j.pushed_at || "").slice(0, 10) };
+  let lastErr;
+  for (let attempt = 0; attempt <= 2; attempt++) {
+    try {
+      const res = await fetch(`https://api.github.com/repos/${repo}`, {
+        headers,
+        signal: AbortSignal.timeout(15000),
+      });
+      if (res.status === 404) throw Object.assign(new Error("HTTP 404"), { noRetry: true });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const j = await res.json();
+      return { stars: j.stargazers_count, pushed: (j.pushed_at || "").slice(0, 10) };
+    } catch (e) {
+      if (e.noRetry) throw e;
+      lastErr = e;
+      if (attempt < 2) await new Promise(r => setTimeout(r, 1500 * (attempt + 1)));
+    }
+  }
+  throw lastErr;
 }
 
 // ---------- 数据合法性守卫 ----------

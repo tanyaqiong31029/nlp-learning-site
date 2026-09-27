@@ -92,7 +92,16 @@ await page.waitForTimeout(150);
 check("bigram 续写有结果", (await page.locator("#lmOut .verdict").textContent()).includes("模型续写"));
 await page.locator("#kappaRun").click();
 await page.waitForTimeout(150);
-check("κ 结果含系数", (await page.locator("#kappaOut .verdict").textContent()).includes("κ"));
+check("κ 示例确定值 0.46", (await page.locator("#kappaOut .verdict").textContent()).includes("0.46"));
+await page.evaluate(() => {
+  document.querySelectorAll("#kappaGrid select").forEach(s => { s.value = "3"; });
+});
+await page.locator("#kappaRun").click();
+await page.waitForTimeout(150);
+check("κ 退化输入报告不可计算", (await page.locator("#kappaOut .verdict").textContent()).includes("不可计算"));
+await page.locator("#kappaReset").click();
+await page.waitForTimeout(150);
+check("κ 恢复示例回到 0.46", (await page.locator("#kappaOut .verdict").textContent()).includes("0.46"));
 check("κ 交叉表 4 行", await page.locator("#kappaOut tbody tr").count() === 4);
 check("无 JS 页面错误(项目页)", pageErrors.length === 0, pageErrors.join("; "));
 

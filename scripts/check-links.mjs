@@ -47,9 +47,12 @@ async function probe(url) {
     if ([521, 522, 523, 530].includes(res.status)) return { url, level: "warn", msg: `HTTP ${res.status}（Cloudflare 源站不可达，请人工确认）` };
     return { url, level: "fail", msg: `HTTP ${res.status}` };
   } catch (e) {
-    const msg = e.name === "AbortError" ? "超时(15s)" : e.message.slice(0, 80);
-    // DNS 解析失败 = 真失效；连接被重置等网络层错误多为反爬
-    if (/ENOTFOUND|EAI_AGAIN/.test(e.message)) return { url, level: "fail", msg };
+    // Node 18+ 的网络错误细节在 error.cause.code 里（如 ENOTFOUND）；只看 message 会把 DNS 失效误判为反爬警告
+    const cause = e.cause?.code || e.code || "";
+    const base = e.name === "AbortError" ? "超时(15s)" : String(e.message || e).slice(0, 80);
+    const msg = cause ? `${base} [${cause}]` : base;
+    // DNS 解析失败 / 连接被拒 = 真失效；连接被重置等其他网络层错误多为反爬
+    if (/ENOTFOUND|EAI_AGAIN|ECONNREFUSED/.test(cause + " " + e.message)) return { url, level: "fail", msg };
     if (e.name === "AbortError") return { url, level: "fail", msg };
     return { url, level: "warn", msg: `${msg}（疑似反爬，请人工确认）` };
   } finally { clearTimeout(timer); }

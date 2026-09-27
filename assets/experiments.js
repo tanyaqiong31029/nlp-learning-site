@@ -362,13 +362,18 @@ function runKappa() {
   const ca = KAPPA_LEVELS.map((_, c) => a.filter(v => v === c).length);
   const cb = KAPPA_LEVELS.map((_, c) => b.filter(v => v === c).length);
   const pe = ca.reduce((s, x, c) => s + (x * cb[c]) / n ** 2, 0);
-  const kappa = pe < 1 ? (po - pe) / (1 - pe) : 1;
 
-  let html = `<p class="verdict">Cohen's κ = <strong>${kappa.toFixed(2)}</strong> · ${kappaBand(kappa)}</p>`;
+  // 退化输入：所有打分集中在同一类别 → pe = 1，κ 公式为 0/0，任何数值都是错的
+  const degenerate = pe >= 1;
+  const kappa = degenerate ? null : (po - pe) / (1 - pe);
+
+  let html = degenerate
+    ? `<p class="verdict">Cohen's κ = <strong>不可计算</strong> · 所有打分集中在同一类别（无变异）</p>`
+    : `<p class="verdict">Cohen's κ = <strong>${kappa.toFixed(2)}</strong> · ${kappaBand(kappa)}</p>`;
   html += `<div class="stat-chips">
     <div class="stat-chip"><b>${po.toFixed(2)}</b><span>实际一致率 po</span></div>
     <div class="stat-chip"><b>${pe.toFixed(2)}</b><span>碰巧一致率 pe</span></div>
-    <div class="stat-chip"><b>${kappa.toFixed(2)}</b><span>Cohen's κ</span></div>
+    <div class="stat-chip"><b>${degenerate ? "—" : kappa.toFixed(2)}</b><span>Cohen's κ${degenerate ? "（不可计算）" : ""}</span></div>
   </div>`;
   html += `<h4>打分交叉表（行 = 评分者 A，列 = 评分者 B）</h4><div style="overflow-x:auto"><table class="simmat"><thead><tr><th></th>${KAPPA_LEVELS.map(lv => `<th>${lv}</th>`).join("")}</tr></thead><tbody>`;
   KAPPA_LEVELS.forEach((lv, r) => {
@@ -380,7 +385,9 @@ function runKappa() {
     html += `</tr>`;
   });
   html += `</tbody></table></div>`;
-  html += `<p class="note">💡 κ 扣掉了"瞎蒙也能蒙对"的部分，所以比直接算重合百分比更公平——两人都只打「优」时重合率 100%，κ 却可能不高。把评分者 B 换成 LLM 的打分，就是校验 LLM-as-a-Judge 是否可信的标准做法。</p>`;
+  html += `<p class="note">${degenerate
+    ? `💡 两位评分者对全部 ${n} 条的打分完全相同（原始一致率确实是 100%），但"碰巧一致率" pe 也随之等于 1，κ 的分母为 0——此时报任何 κ 数值都是错的，只能如实报告原始一致率 po。换一批有分歧的样本、或让评分者敢于打不同档，再看 κ。`
+    : `💡 κ 扣掉了"瞎蒙也能蒙对"的部分，所以比直接算重合百分比更公平。把评分者 B 换成 LLM 的打分，就是校验 LLM-as-a-Judge 是否可信的标准做法。`}</p>`;
   out.innerHTML = html;
 }
 

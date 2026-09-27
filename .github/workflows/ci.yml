@@ -5,6 +5,7 @@ on:
     branches: ["main"]
   pull_request:
   workflow_dispatch:
+  workflow_call: # 供 deploy-pages 复用：检查同一提交 → 部署同一产物
 
 jobs:
   checks:
@@ -14,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
       - run: npm ci
       - name: JS 语法检查
@@ -36,10 +37,25 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
       - run: npm ci
       - name: 启动本地服务
         run: python3 -m http.server 8000 & sleep 1
       - name: 运行冒烟测试（系统 Chrome）
         run: node scripts/smoke-test.mjs http://localhost:8000
+
+  package:
+    name: 打包站点产物（部署只用这一份）
+    needs: [checks, smoke]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 上传站点产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: |
+            .
+            !.git/
+          retention-days: 7

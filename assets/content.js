@@ -185,7 +185,7 @@ async function loadLiveBoard() {
   // 网络护栏：8 秒超时；逐仓库容错；半数以上失败则放弃写入缓存
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 8000);
-  let rateLimited = false;
+  let rateLimited;
   const results = await Promise.allSettled(FRONTIER.live.repos.map(async r => {
     const res = await fetch(`https://api.github.com/repos/${r.repo}`, {
       headers: { Accept: "application/vnd.github+json" },
