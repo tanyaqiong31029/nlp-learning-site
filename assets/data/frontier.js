@@ -9,21 +9,27 @@
       （12 小时缓存，离线/限流时回落到 fallback 数据，fallback 由脚本每日更新）。
    ============================================================ */
 window.FRONTIER = {
-  updated: "2026-10-07",
+  updated: "2026-10-08",
 
   // ---- 近期动态（最新在前）----
   picks: [
     {
-      date: "2026-10-07",
+      date: "2026-10-08",
       repo: "microsoft/generative-ai-for-beginners",
       label: "自动核验",
-      text: "微软官方 21 课生成式 AI 入门，从原理讲到应用与伦理。GitHub API 每日核验：最近推送 2026-10-07，当前星标 121.1k。",
+      text: "微软官方 21 课生成式 AI 入门，从原理讲到应用与伦理。GitHub API 每日核验：最近推送 2026-10-08，当前星标 121.2k。",
     },
     {
-      date: "2026-10-07",
+      date: "2026-10-08",
       repo: "openai/openai-cookbook",
       label: "自动核验",
-      text: "OpenAI 官方的 API 使用示例与实操指南合集。GitHub API 每日核验：最近推送 2026-10-07，当前星标 76.4k。",
+      text: "OpenAI 官方的 API 使用示例与实操指南合集。GitHub API 每日核验：最近推送 2026-10-08，当前星标 76.4k。",
+    },
+    {
+      date: "2026-10-08",
+      repo: "huggingface/transformers",
+      label: "自动核验",
+      text: "Hugging Face 旗舰库：数千个预训练模型的一站式下载与使用入口。GitHub API 每日核验：最近推送 2026-10-08，当前星标 167.1k。",
     },
     {
       date: "2026-10-07",
@@ -33,15 +39,21 @@ window.FRONTIER = {
     },
     {
       date: "2026-10-07",
-      repo: "huggingface/transformers",
-      label: "自动核验",
-      text: "Hugging Face 旗舰库：数千个预训练模型的一站式下载与使用入口。GitHub API 每日核验：最近推送 2026-10-07，当前星标 167k。",
-    },
-    {
-      date: "2026-10-06",
       repo: "stanfordnlp/stanza",
       label: "自动核验",
-      text: "斯坦福官方多语言 NLP 工具包，支持 70+ 种语言。GitHub API 每日核验：最近推送 2026-10-06，当前星标 7.9k。",
+      text: "斯坦福官方多语言 NLP 工具包，支持 70+ 种语言。GitHub API 每日核验：最近推送 2026-10-07，当前星标 7.9k。",
+    },
+    {
+      date: "2026-10-07",
+      repo: "vinta/awesome-python",
+      label: "自动核验",
+      text: "「我想用 Python 做 X，该用哪个库」的权威答案库。GitHub API 每日核验：最近推送 2026-10-07，当前星标 326k。",
+    },
+    {
+      date: "2026-10-07",
+      repo: "programminghistorian/jekyll",
+      label: "自动核验",
+      text: "人文学者写给同行的编程教程集（本仓库为站点源码）。GitHub API 每日核验：最近推送 2026-10-07，当前星标 552。",
     },
     {
       date: "2026-10-06",
@@ -51,21 +63,15 @@ window.FRONTIER = {
     },
     {
       date: "2026-10-06",
-      repo: "programminghistorian/jekyll",
-      label: "自动核验",
-      text: "人文学者写给同行的编程教程集（本仓库为站点源码）。GitHub API 每日核验：最近推送 2026-10-06，当前星标 552。",
-    },
-    {
-      date: "2026-10-06",
       repo: "awesomedata/awesome-public-datasets",
       label: "自动核验",
-      text: "按 25+ 学科整理的高质量公开数据集总表。GitHub API 每日核验：最近推送 2026-10-06，当前星标 79.3k。",
+      text: "按 25+ 学科整理的高质量公开数据集总表。GitHub API 每日核验：最近推送 2026-10-06，当前星标 79.4k。",
     },
     {
       date: "2026-10-05",
       repo: "practical-tutorials/project-based-learning",
       label: "自动核验",
-      text: "按项目组织的编程教程汇编，覆盖 Python 等多种语言。GitHub API 每日核验：最近推送 2026-10-05，当前星标 286.1k。",
+      text: "按项目组织的编程教程汇编，覆盖 Python 等多种语言。GitHub API 每日核验：最近推送 2026-10-05，当前星标 286.2k。",
     },
     {
       date: "2026-10-02",
@@ -74,16 +80,10 @@ window.FRONTIER = {
       text: "用 PyTorch 一步步从零实现一个类 ChatGPT 模型。GitHub API 每日核验：最近推送 2026-10-02，当前星标 106.2k。",
     },
     {
-      date: "2026-10-02",
-      repo: "vinta/awesome-python",
-      label: "自动核验",
-      text: "「我想用 Python 做 X，该用哪个库」的权威答案库。GitHub API 每日核验：最近推送 2026-10-02，当前星标 325.7k。",
-    },
-    {
       date: "2026-09-30",
       repo: "explosion/spaCy",
       label: "自动核验",
-      text: "工业级自然语言处理库，速度与精度兼备。GitHub API 每日核验：最近推送 2026-09-30，当前星标 33.9k。",
+      text: "工业级自然语言处理库，速度与精度兼备。GitHub API 每日核验：最近推送 2026-09-30，当前星标 34k。",
     },
   ],
 
@@ -129,15 +129,15 @@ window.FRONTIER = {
   // ---- 实时活跃度看板（自动刷新，无需手工维护）----
   live: {
     repos: [
-      { repo: "huggingface/transformers", name: "Transformers", fallback: { stars: 167014, pushed: "2026-10-07" } },
-      { repo: "microsoft/generative-ai-for-beginners", name: "GenAI for Beginners", fallback: { stars: 121098, pushed: "2026-10-07" } },
-      { repo: "rasbt/LLMs-from-scratch", name: "LLMs from Scratch", fallback: { stars: 106165, pushed: "2026-10-02" } },
-      { repo: "mlabonne/llm-course", name: "LLM Course", fallback: { stars: 83318, pushed: "2026-02-05" } },
-      { repo: "d2l-ai/d2l-zh", name: "动手学深度学习", fallback: { stars: 81428, pushed: "2024-07-30" } },
-      { repo: "chinese-poetry/chinese-poetry", name: "chinese-poetry", fallback: { stars: 53568, pushed: "2026-06-17" } },
-      { repo: "hankcs/HanLP", name: "HanLP", fallback: { stars: 36507, pushed: "2026-09-15" } },
-      { repo: "EleutherAI/lm-evaluation-harness", name: "LM Eval Harness", fallback: { stars: 14144, pushed: "2026-09-14" } },
-      { repo: "explosion/spaCy", name: "spaCy", fallback: { stars: 33944, pushed: "2026-09-30" } },
+      { repo: "huggingface/transformers", name: "Transformers", fallback: { stars: 167050, pushed: "2026-10-08" } },
+      { repo: "microsoft/generative-ai-for-beginners", name: "GenAI for Beginners", fallback: { stars: 121155, pushed: "2026-10-08" } },
+      { repo: "rasbt/LLMs-from-scratch", name: "LLMs from Scratch", fallback: { stars: 106206, pushed: "2026-10-02" } },
+      { repo: "mlabonne/llm-course", name: "LLM Course", fallback: { stars: 83331, pushed: "2026-02-05" } },
+      { repo: "d2l-ai/d2l-zh", name: "动手学深度学习", fallback: { stars: 81467, pushed: "2024-07-30" } },
+      { repo: "chinese-poetry/chinese-poetry", name: "chinese-poetry", fallback: { stars: 53576, pushed: "2026-06-17" } },
+      { repo: "hankcs/HanLP", name: "HanLP", fallback: { stars: 36505, pushed: "2026-09-15" } },
+      { repo: "EleutherAI/lm-evaluation-harness", name: "LM Eval Harness", fallback: { stars: 14157, pushed: "2026-09-14" } },
+      { repo: "explosion/spaCy", name: "spaCy", fallback: { stars: 33950, pushed: "2026-09-30" } },
     ],
   },
 
