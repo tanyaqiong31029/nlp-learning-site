@@ -51,11 +51,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # 只打包站点运行所需文件（index.html 仅引用 assets/ 下资源），
+      # 不把 scripts/、.github/、package*.json 等开发文件发布到 Pages
       - name: 上传站点产物
         uses: actions/upload-artifact@v4
         with:
           name: site
           path: |
-            .
-            !.git/
+            index.html
+            assets/
+            docs/
+            LICENSE
+          if-no-files-found: error
           retention-days: 7
