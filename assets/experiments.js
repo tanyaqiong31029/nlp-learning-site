@@ -58,7 +58,7 @@ function runSimilarity() {
   }
   const vecs = tfidfMatrix(docs);
   const N = docs.length;
-  const labels = docs.map((d, i) => `文档${i + 1}（${d.slice(0, 6)}…）`);
+  const labels = docs.map((d, i) => `文档${i + 1}（${escapeHtml(d.slice(0, 6))}…）`);
 
   let best = { i: -1, j: -1, v: -1 };
   let worst = { i: -1, j: -1, v: 2 };
@@ -140,6 +140,11 @@ function runDelta() {
   const total = new Map();
   entries.forEach(({ f }) => { for (const [c, x] of f) total.set(c, (total.get(c) || 0) + x); });
   const top = [...total.entries()].sort((a, b) => b[1] - a[1]).slice(0, TOP_N).map(e => e[0]);
+  // 特征只取汉字：纯英文等非中文输入没有任何特征，Delta 会变成 0/0 = NaN
+  if (!top.length) {
+    out.innerHTML = `<p class="note">⚠️ 这个实验需要中文文本：算法统计的是高频汉字（功能字）的使用指纹，当前输入里没有找到汉字。</p>`;
+    return;
+  }
 
   // 每个字跨文本 z 分数标准化（Burrows 1982）
   const z = entries.map(() => new Map());

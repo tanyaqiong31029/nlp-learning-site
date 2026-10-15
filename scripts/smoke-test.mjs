@@ -3,7 +3,7 @@
  * 冒烟测试：node scripts/smoke-test.mjs <baseURL>
  * 需先起本地静态服务，如：python3 -m http.server 8000
  * 使用系统 Chrome（channel: "chrome"），无需下载浏览器。
- * 覆盖：路由导航 / 知识库搜索 / 五个在线实验 / 进度持久化 / 页面 JS 错误。
+ * 覆盖：路由导航 / 知识库搜索 / 五个在线实验（含非中文与 HTML 输入）/ 进度持久化（含损坏存储）/ 页面 JS 错误。
  */
 import { chromium } from "playwright";
 
@@ -77,10 +77,37 @@ await page.waitForTimeout(400);
 await page.locator("#simRun").click();
 await page.waitForTimeout(150);
 check("相似度矩阵 5×5", await page.locator("#simOut .simmat td").count() === 25);
+// 用户文本片段须转义后再插入 HTML
+const simFirst = await page.evaluate(() => {
+  const t = document.querySelector("#simInputs textarea");
+  const v = t.value;
+  t.value = "<i>xy</i>" + v;
+  return v;
+});
+await page.locator("#simRun").click();
+await page.waitForTimeout(150);
+check("相似度标签已转义（不注入 HTML）", await page.locator("#simOut i").count() === 0
+  && (await page.locator("#simOut").textContent()).includes("<i>xy"));
+await page.evaluate(v => { document.querySelector("#simInputs textarea").value = v; }, simFirst);
 await page.locator("#deltaRun").click();
 await page.waitForTimeout(150);
 const deltaVerdict = await page.locator("#deltaOut .verdict").textContent();
 check("文体计量判定为周砚秋", deltaVerdict.includes("周砚秋"), deltaVerdict.slice(0, 40));
+// 非中文输入：特征集为空，应给出友好提示而不是 NaN
+const deltaSaved = await page.evaluate(() => {
+  const els = [...document.querySelectorAll("#deltaInputs textarea"), document.querySelector("#deltaUnknown")];
+  const saved = els.map(t => t.value);
+  els.forEach((t, i) => { t.value = `The quick brown fox jumps over the lazy dog, sample ${i}.`; });
+  return saved;
+});
+await page.locator("#deltaRun").click();
+await page.waitForTimeout(150);
+const deltaEn = await page.locator("#deltaOut").textContent();
+check("文体计量非中文输入给出提示且无 NaN", deltaEn.includes("需要中文文本") && !deltaEn.includes("NaN"), deltaEn.slice(0, 60));
+await page.evaluate(saved => {
+  const els = [...document.querySelectorAll("#deltaInputs textarea"), document.querySelector("#deltaUnknown")];
+  els.forEach((t, i) => { t.value = saved[i]; });
+}, deltaSaved);
 await page.locator("#statsRun").click();
 await page.waitForTimeout(150);
 check("语料统计 6 个指标", await page.locator("#statsOut .stat-chip").count() === 6);
@@ -116,6 +143,22 @@ await page.waitForTimeout(400);
 check("刷新后进度保留", await page.locator('[data-pid="math-lin-1"]').getAttribute("aria-pressed") === "true");
 await page.locator('[data-pid="math-lin-1"]').click(); // 还原
 check("再次点击取消", await page.locator('[data-pid="math-lin-1"]').getAttribute("aria-pressed") === "false");
+
+// ---------- 损坏的进度存储不应导致启动崩溃 ----------
+for (const bad of ["null", "[]", '"oops"']) {
+  await page.evaluate(v => localStorage.setItem("nlp-map-progress-v1", v), bad);
+  const before = pageErrors.length;
+  await page.reload({ waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(400);
+  let ok = false;
+  try {
+    await page.locator('[data-pid="math-lin-1"]').click({ timeout: 3000 });
+    ok = await page.locator('[data-pid="math-lin-1"]').getAttribute("aria-pressed") === "true";
+    await page.locator('[data-pid="math-lin-1"]').click({ timeout: 3000 }); // 还原
+  } catch { /* 启动崩溃时按钮不可用，下面判为失败 */ }
+  check(`进度存储为 ${bad} 时正常启动`, ok && pageErrors.length === before, pageErrors.slice(before).join("; "));
+}
+await page.evaluate(() => localStorage.removeItem("nlp-map-progress-v1"));
 
 // ---------- 汇总 ----------
 await browser.close();

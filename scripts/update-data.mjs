@@ -5,7 +5,7 @@
  * 做什么：
  *   1. 经 GitHub API 核验 knowledge.js / frontier.js 中全部仓库的 星标(stars) 与最近推送(pushed)
  *   2. 自动重新生成 frontier.js 的「近期动态」picks（近 60 天有推送的仓库，按时间倒序）
- *   3. 刷新两个数据文件的 updated 日期
+ *   3. 数据确有变化时刷新对应数据文件的 updated 日期（无变化则不改，避免每日空提交）
  *
  * 怎么跑：
  *   - 本地手动： node scripts/update-data.mjs            （可选环境变量 GITHUB_TOKEN 提升限流额度）
@@ -116,7 +116,8 @@ for (const [repo, d] of Object.entries(data)) {
   const re = new RegExp(`(repo:\\s*"${esc(repo)}",[\\s\\S]{0,160}?stars:\\s*)\\d+(,\\s*pushed:\\s*")[^"]*(")`);
   kbOut = kbOut.replace(re, `$1${d.stars}$2${d.pushed.slice(0, 7)}$3`);
 }
-kbOut = kbOut.replace(/updated:\s*"[^"]*"/, `updated: "${fmtDate(new Date())}"`);
+// 只有真实数据变化时才刷新 updated 日期，否则每天都会产生一次无意义的提交 + 部署
+if (kbOut !== kb) kbOut = kbOut.replace(/updated:\s*"[^"]*"/, `updated: "${fmtDate(new Date())}"`);
 
 // ---------- 2. 更新 frontier.js 实时看板 fallback ----------
 let frOut = fr;
@@ -127,7 +128,10 @@ for (const [repo, d] of Object.entries(data)) {
 
 // ---------- 3. 重新生成「近期动态」picks（近 60 天有推送，倒序，最多 12 条） ----------
 const kbDesc = {};
-for (const m of kb.matchAll(/repo:\s*"([^"]+)"[\s\S]{0,500}?desc:\s*"([^"]*)"/g)) kbDesc[m[1]] = m[2];
+// desc 支持转义引号（\"）；捕获的是 JS 源码字面量，先反转义，后面再由 jsStr 统一转义
+for (const m of kb.matchAll(/repo:\s*"([^"]+)"[\s\S]{0,500}?desc:\s*"((?:[^"\\\n]|\\.)*)"/g)) {
+  kbDesc[m[1]] = m[2].replace(/\\(.)/g, "$1");
+}
 
 const now = Date.now();
 const entries = Object.entries(data)
@@ -150,7 +154,7 @@ if (entries.length) {
 } else {
   console.warn("  ⚠ 未生成任何近 60 天动态，保留原有 picks");
 }
-frOut = frOut.replace(/updated:\s*"[^"]*"/, `updated: "${fmtDate(new Date())}"`);
+if (frOut !== fr) frOut = frOut.replace(/updated:\s*"[^"]*"/, `updated: "${fmtDate(new Date())}"`);
 
 // ---------- 4. 有变化才写回（避免无意义的提交循环） ----------
 const changed = kbOut !== kb || frOut !== fr;

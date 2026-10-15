@@ -2,7 +2,7 @@
    app.js · 路由 / 学习进度 / 启动引导
    模块划分：
      core.js         —— 工具函数、存储、主题、代码块工具
-     experiments.js  —— 三个在线实验
+     experiments.js  —— 五个在线实验
      content.js      —— 知识库与前沿动态渲染
      app.js          —— hash 路由、进度系统、页面导航、启动
    加载顺序（index.html）：数据文件 → core → experiments → content → app
@@ -69,7 +69,9 @@ function buildPager() {
 
 /* ---------------- 学习进度 ---------------- */
 const PROGRESS_KEY = "nlp-map-progress-v1";
+// 存储内容可能被篡改或损坏（null / 数组 / 字符串），非普通对象一律重置，避免启动崩溃
 let progress = STORE.get(PROGRESS_KEY, {});
+if (!progress || typeof progress !== "object" || Array.isArray(progress)) progress = {};
 
 function initProgress() {
   $$(".check-btn[data-pid]").forEach(btn => {

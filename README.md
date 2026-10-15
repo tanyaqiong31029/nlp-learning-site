@@ -66,7 +66,7 @@ python3 -m http.server 8000
 
 1. **先看[路线图](https://tanyaqiong31029.github.io/nlp-learning-site/#/roadmap)**，选好路径（多数人选应用向）；
 2. **数学和 Python 交替推进**，每学完一块点击旁边的「标记已掌握」记录进度；
-3. 学到第 3 个月左右，去[实操项目区](https://tanyaqiong31029.github.io/nlp-learning-site/#/projects)**换上自己的语料**做实验——三个实验在浏览器里就能跑；
+3. 学到第 3 个月左右，去[实操项目区](https://tanyaqiong31029.github.io/nlp-learning-site/#/projects)**换上自己的语料**做实验——五个实验在浏览器里就能跑；
 4. 需要找工具、语料或进阶资源时，查[资源知识库](https://tanyaqiong31029.github.io/nlp-learning-site/#/kb)；想了解领域风向，看[前沿动态](https://tanyaqiong31029.github.io/nlp-learning-site/#/frontier)。
 
 > 💡 页面基于 hash 路由（`#/roadmap`、`#/kb`……），可直接收藏某一页的链接。

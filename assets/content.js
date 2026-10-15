@@ -191,7 +191,10 @@ async function loadLiveBoard() {
       headers: { Accept: "application/vnd.github+json" },
       signal: ctrl.signal,
     });
-    if (res.status === 429) throw new Error("rate-limited(429)");
+    // GitHub 未认证限流多返回 403 + x-ratelimit-remaining: 0，与 429 同等对待
+    if (res.status === 429 || (res.status === 403 && res.headers.get("x-ratelimit-remaining") === "0")) {
+      throw new Error(`rate-limited(${res.status})`);
+    }
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const j = await res.json();
     return { repo: r.repo, name: r.name, stars: j.stargazers_count, pushed: (j.pushed_at || "").slice(0, 10) };
@@ -201,7 +204,7 @@ async function loadLiveBoard() {
   const ok = results
     .filter(r => r.status === "fulfilled")
     .map(r => r.value);
-  rateLimited = results.some(r => r.status === "rejected" && /429/.test(String(r.reason?.message || r.reason)));
+  rateLimited = results.some(r => r.status === "rejected" && /rate-limited/.test(String(r.reason?.message || r.reason)));
 
   if (ok.length >= Math.ceil(FRONTIER.live.repos.length / 2)) {
     STORE.set(CACHE_KEY, { t: Date.now(), data: ok });
